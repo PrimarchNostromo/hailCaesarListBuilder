@@ -9,13 +9,14 @@ and open the template in the editor.
         <title>Republican Romans</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
         <script src="republicanRomansScript.js"></script>
     </head>
     <body>
-        <div>Republican Romans List Builder</div>
+<div>Republican Romans List Builder</div>
            <p>Select a unit to add to your army</p>
            <form>
-             <select name = "dropdown">
+             <select name = "dropdown" id="dropdown">
                 <option value = "Hastati" selected>Hastati</option>
                 <option value = "Principes">Principes</option>
                 <option value = "Triarii">Triarii</option>
@@ -23,5 +24,13 @@ and open the template in the editor.
            </form>
            <input type="button" onclick="fun()" value="click here">
            <div id= "unitBox">Test</div>
+
+           
+<div>
+      <p class="name">testing</p>
+      <button onclick="changeColor('blue')" class="blue">Blue</button>
+      <button onclick="changeColor('green')" class="green">Green</button>
+      <button onclick="changeColor('orangered')" class="orange">Orange</button>
+</div>
     </body>
 </html>
