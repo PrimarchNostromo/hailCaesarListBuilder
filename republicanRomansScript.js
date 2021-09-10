@@ -10,3 +10,10 @@ function fun()
 function changeColor(color) {
    document.querySelector(".name").style.color = color;
 }
+
+function addItem(name, points) {
+   // document.getElementById("unitBox").innerHTML += "<br>";
+    document.getElementById("unitBox").innerHTML += "<br>" + name + " " + points;
+    document.getElementById("pointsTotal").innerHTML = 
+            parseFloat(document.getElementById("pointsTotal").innerHTML) + parseFloat(points);
+}
