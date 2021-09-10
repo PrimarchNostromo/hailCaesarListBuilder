@@ -23,9 +23,37 @@ and open the template in the editor.
              </select>
            </form>
            <input type="button" onclick="fun()" value="click here">
-           <div id= "unitBox">Test</div>
-
            
+
+<table>
+  <tr>
+    <th>Unit</th>
+    <th>Clash</th>
+    <th>Sustain</th>
+    <th>Short</th>
+    <th>Long</th>
+    <th>Morale</th>
+    <th>Stamina</th>
+    <th>Special</th>
+    <th>Points Value</th>
+    <th>Add to army<th>
+  </tr>
+  <tr>
+    <td>Hastati or Principes heavy infantry</td>
+    <td>5</td>
+    <td>5</td>
+    <td>2</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>4</td>
+    <td>Drilled</td>
+    <td>23 per unit</td>
+    <td><button type="button" onclick="addItem('hastati', '23')">Add</button></td>
+  </tr>
+
+</table>   
+           <div id= "unitBox">Army list</div>
+           <div id= "pointsTotal">0</div>
 <div>
       <p class="name">testing</p>
       <button onclick="changeColor('blue')" class="blue">Blue</button>
