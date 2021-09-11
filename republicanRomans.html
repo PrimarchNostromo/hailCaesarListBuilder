@@ -39,7 +39,7 @@ and open the template in the editor.
     <th>Add to army<th>
   </tr>
   <tr>
-    <td>Hastati or Principes heavy infantry</td>
+    <td>Hastati or Principes heavy infantry armed with pila and fielded as small units</td>
     <td>5</td>
     <td>5</td>
     <td>2</td>
@@ -48,9 +48,80 @@ and open the template in the editor.
     <td>4</td>
     <td>Drilled</td>
     <td>23 per unit</td>
-    <td><button type="button" onclick="addItem('hastati', '23')">Add</button></td>
+    <td><button type="button" onclick="addItem('Hastati', '23')">Add</button></td>
   </tr>
-
+  <tr>
+    <td>As above, but with Tough Fighters</td>
+    <td>5</td>
+    <td>5</td>
+    <td>2</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>4</td>
+    <td>Drilled, Tough fighters</td>
+    <td>+1 per unit</td>
+    <td><button type="button" onclick="addItem('Tough Hastati Upgrade', '1')">Add</button></td>
+  </tr>
+  <tr>
+    <td>Principes heavy infantry armed with long spears and fielded as small units</td>
+    <td>5</td>
+    <td>5</td>
+    <td>2/0</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>4</td>
+    <td>Drilled</td>
+    <td>23 per unit</td>
+    <td><button type="button" onclick="addItem('Principes', '23')">Add</button></td>
+  </tr>
+  <tr>
+    <td>As above, but with Stubborn</td>
+    <td>5</td>
+    <td>5</td>
+    <td>2/0</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>4</td>
+    <td>Drilled, Stubborn</td>
+    <td>+2 per unit</td>
+    <td><button type="button" onclick="addItem('Stubborn Principes Upgrade', '2')">Add</button></td>
+  </tr>
+  <tr>
+    <td>Reduction to make a pair of hastati/principes in the same division levy</td>
+    <td>5</td>
+    <td>5</td>
+    <td>2/0</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>4</td>
+    <td>Levy</td>
+    <td>-4 per unit</td>
+    <td><button type="button" onclick="addItem('Levy Principes/Hastati Upgrade', '-4')">Add</button></td>
+  </tr>
+  <tr>
+    <td>Triarii heavy infantry armed with long spears and fielded as small units</td>
+    <td>5</td>
+    <td>5</td>
+    <td>3/0</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>4</td>
+    <td>Drilled, Elite, Stubborn</td>
+    <td>28 per unit</td>
+    <td><button type="button" onclick="addItem('Triarii', '28')">Add</button></td>
+  </tr>
+  <tr>
+    <td>As above, but with Valiant</td>
+    <td>5</td>
+    <td>5</td>
+    <td>3/0</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>4</td>
+    <td>Drilled, Elite, Stubborn, Valiant</td>
+    <td>+2 per unit</td>
+    <td><button type="button" onclick="addItem('Valiant Triarii Upgrade', '2')">Add</button></td>
+  </tr>
 </table>   
            <div id= "unitBox">Army list</div>
            <div id= "pointsTotal">0</div>
