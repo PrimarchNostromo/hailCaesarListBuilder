@@ -2,4 +2,6 @@
 A list builder for the Hail Caesar miniature wargame 
 
 
-Created by Joshua Geyer
+List builder application Created by Joshua Geyer
+
+Hail Caesar Miniatures game developed by Warlord Games
