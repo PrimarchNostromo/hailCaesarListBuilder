@@ -14,17 +14,52 @@ and open the template in the editor.
     </head>
     <body>
 <div>Republican Romans List Builder</div>
-           <p>Select a unit to add to your army</p>
+
+<p>These are the rules for making a Republican Roman army<p>
+<table>
+    <tr>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+        <td>Infantry 75%</td><!-- comment -->
+        <td>At least 3/4 of the units must be non-skirmishing infantry</td>
+    </tr>
+    <tr>
+        <td>Hastati, Principes, Triarii 50% infantry</td><!-- comment -->
+        <td>Together, Hastati, Pricipes, and Triarii must make up 50% of non-skirmish infantry. 
+            Hastati and principes units must be bought in pairs.
+        Triarii can be inlcuded in the ratio of 1 unit of triarii for every 2 pairs of hastati/principes</td>
+    </tr>
+    <tr>
+        <td>Cavalry up to 25%</td><!-- comment -->
+        <td>Up to 1/4 of the units in the army can be cavalry</td>
+    </tr>
+    <tr>
+        <td>Light cavalry at least 50% of calvary</td><!-- comment -->
+        <td>At least 1/2 of the cavalry must be light cavalry</td>
+    </tr>
+    <tr>
+        <td>Divisions 4+ units</td><!-- comment -->
+        <td>Divisions must contain at least 4 units excluding skirmishers and must be led by a commander.
+        Allied infantry must be fielded in divisions wholly composed of the same native troops</td>
+    </tr>
+    <tr>
+        <td>Skirmishers per division 50% of infantry</td><!-- comment -->
+        <td>Divisions may contain up to half as many skirmisher units as they contain non-skirmisher infantry</td>
+    </tr>
+</table>
+
+<p>Units will be added to the following division:</p><!-- comment -->
            <form>
              <select name = "dropdown" id="dropdown">
-                <option value = "Hastati" selected>Hastati</option>
-                <option value = "Principes">Principes</option>
-                <option value = "Triarii">Triarii</option>
+                <option value = "Division1" selected>Division 1</option>
+                <option value = "Division2">Division 2</option>
+                <option value = "Division3">Division 3</option>
              </select>
            </form>
-           <input type="button" onclick="fun()" value="click here">
            
-
+<p>Select a unit to add to your army</p>
 <table>
   <tr>
     <th>Unit</th>
@@ -147,7 +182,17 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem('Italian Spears Levy downgrade', '-3')">Add</button></td>
   </tr>
 </table>   
-           <div id= "unitBox">Army list</div>
+           <h2 id= "unitBox">Army list</h2>
+           <span>Division 1</span>
+           <div id= "Division1"></div>
+           <br>
+           <span>Division 2</span>
+           <div id= "Division2"></div>
+           <br>
+           <span>Division 3</span>
+           <div id= "Division3"></div>
+           <br>
+           <span>Points total:</span>
            <div id= "pointsTotal">0</div>
 <div>
       <p class="name">testing</p>
