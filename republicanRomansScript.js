@@ -7,6 +7,7 @@ var value = 1;
 //add a unit to the list
 function addItem(name, points) {
    // document.getElementById("unitBox").innerHTML += "<br>";
+   //select which division these chumps go into
     var ddl = document.getElementById("dropdown");
     var selectedValue = ddl.options[ddl.selectedIndex].value;
  
