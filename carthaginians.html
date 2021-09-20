@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Carthaginians</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="republicanRomansScript.js"></script>
+    </head>
+    <body>
+<h1>Carthaginian List Builder</h1>
+
+<p>These are the rules for making a Carthaginian army<p>
+<table>
+
+    <tr class="default">
+        <td>Infantry 66%</td><!-- comment -->
+        <td>At least 2/3 of the units must be non-skirmishing infantry</td>
+    </tr>
+    <tr class="default">
+        <td>Libyan spearmen up to 25% of infantry</td><!-- comment -->
+        <td>Up to 1/4 of the non-skirmishing infantry can be Libyan spearmen</td>
+    </tr>
+    <tr class="default">
+        <td>Cavalry up to 25%</td><!-- comment -->
+        <td>Up to 1/4 of the units in the army can be cavalry</td>
+    </tr>
+    <tr class="default">
+        <td>Light cavalry at least 50% of calvary</td><!-- comment -->
+        <td>At least 1/2 of the cavalry must be light cavalry</td>
+    </tr>
+        <tr class="default">
+        <td>Elephants up to 10%</td><!-- comment -->
+        <td>Up to 1/10 units in the army can be elephants</td>
+    </tr>
+    <tr class="default">
+        <td>Divisions 4+ units</td><!-- comment -->
+        <td>Divisions must contain at least 4 units excluding skirmishers and must be led by a commander.</td>
+    </tr>
+    <tr class="default">
+        <td>Skirmishers per division 50% of infantry</td><!-- comment -->
+        <td>Divisions may contain up to half as many skirmisher units as they contain non-skirmisher infantry</td>
+    </tr>
+</table>
+
+<p>Units will be added to the following division:</p><!-- this dropdown is used to select which division the troops go into -->
+           <form>
+             <select name = "dropdown" id="dropdown">
+                <option value = "Division1" selected>Division 1</option>
+                <option value = "Division2">Division 2</option>
+                <option value = "Division3">Division 3</option>
+             </select>
+           </form>
+           
+<p>Select a unit to add to your army</p>
+<table>
+  <tr class="default">
+    <th>Unit</th>
+    <th>Clash</th>
+    <th>Sustain</th>
+    <th>Short</th>
+    <th>Long</th>
+    <th>Morale</th>
+    <th>Stamina</th>
+    <th>Special</th>
+    <th>Points Value</th>
+    <th>Add to army<th>
+  </tr>
+  <tr class="default">
+    <td>Libyan heavy infantry with long spears</td>
+    <td>7</td>
+    <td>7</td>
+    <td>3/0</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td> </td>
+    <td>29 per unit</td>
+    <td><button type="button" onclick="addItem('Libyan heavy spears', '29')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+    <td>Upgrade to veterans</td>
+    <td>7</td>
+    <td>7</td>
+    <td>3/0</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td>Elite, Phalanx, Tough Fighters</td>
+    <td>+7 per unit</td>
+    <td><button type="button" onclick="addItem(' -Veteran Libyan upgrade', '7')">Add</button></td>
+  </tr>
+  <tr class="default">
+    <td>Gallic medium infantry warband armed with swords and javelins</td>
+    <td>9</td>
+    <td>6</td>
+    <td>2</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Wild Fighters</td>
+    <td>28 per unit</td>
+    <td><button type="button" onclick="addItem('Gallic infantry Warband', '28')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+    <td>Extra to field as a large unit</td>
+    <td>11</td>
+    <td>8</td>
+    <td>3</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>8</td>
+    <td>Wild Fighters</td>
+    <td>+7 per unit</td>
+    <td><button type="button" onclick="addItem(' -Warband Large Upgrade', '7')">Add</button></td>
+  </tr>
+    <tr class="default">
+    <td>Italian allied medium infantry armed with spears and/or javelins</td>
+    <td>6</td>
+    <td>6</td>
+    <td>3</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td> </td>
+    <td>23 per unit</td>
+    <td><button type="button" onclick="addItem('Italian Spears', '23')">Add</button></td>
+  </tr>
+    <tr class="default">
+    <td>Celtiberian medium infantry warband armed with swords and javelins</td>
+    <td>9</td>
+    <td>6</td>
+    <td>2</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Wild Fighters</td>
+    <td>28 per unit</td>
+    <td><button type="button" onclick="addItem('Celtiberian infantry Warband', '28')">Add</button></td>
+  </tr>
+    <tr class="default">
+    <td>Spanish scutarii medium infantry armed with pila</td>
+    <td>6</td>
+    <td>6</td>
+    <td>3</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td> </td>
+    <td>23 per unit</td>
+    <td><button type="button" onclick="addItem('Spanish Scutarii', '23')">Add</button></td>
+  </tr>
+  <tr class="default">
+    <td>Spanish caetrati light infantry armed with javelins and fielded as small units</td>
+    <td>3</td>
+    <td>3</td>
+    <td>2</td>
+    <td>0</td>
+    <td>6+</td>
+    <td>4</td>
+    <td> </td>
+    <td>12 per unit</td>
+    <td><button type="button" onclick="addItem('Spanish caetrati', '12')">Add</button></td>
+  </tr>
+  <tr class="default">
+    <td>Skirmishers armed with javelins and fielded as small units</td>
+    <td>3</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>4</td>
+    <td> </td>
+    <td>11 per unit</td>
+    <td><button type="button" onclick="addItem('Skirmishers', '11')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+    <td>Give skirmishers slings instead of javelins (up to half the skirmisher units)</td>
+    <td>2</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>4</td>
+    <td> </td>
+    <td>+1 per unit</td>
+    <td><button type="button" onclick="addItem(' -Slings upgrade', '1')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+    <td>Upgrade slingers to Spanish Baleric</td>
+    <td>2</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>4</td>
+    <td>Marksmen</td>
+    <td>+1 per unit</td>
+    <td><button type="button" onclick="addItem(' -Baleric Slingers', '1')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+    <td>Give skirmishers bows instead of javelins as Numidians - up to 1 unit</td>
+    <td>2</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>4</td>
+    <td> </td>
+    <td>+1 per unit</td>
+    <td><button type="button" onclick="addItem(' -Bowmen upgrade', '1')">Add</button></td>
+  </tr>
+  <tr class="default">
+    <td>Liby-Phoenician medium cavalry fielded as small units</td>
+    <td>6</td>
+    <td>3</td>
+    <td>2</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>4</td>
+    <td> </td>
+    <td>19 per unit</td>
+    <td><button type="button" onclick="addItem('Medium cavalry', '19')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+    <td>Upgrade to Cavalry guard - up to 1 unit</td>
+    <td>6</td>
+    <td>3</td>
+    <td>2</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>4</td>
+    <td>Elite</td>
+    <td>+2 per unit</td>
+    <td><button type="button" onclick="addItem('Cavalry guard', '2')">Add</button></td>
+  </tr>
+  <tr class="default">
+    <td>Light cavalry armed with javelins and fielded as small units</td>
+    <td>5</td>
+    <td>3</td>
+    <td>2</td>
+    <td>0</td>
+    <td>6+</td>
+    <td>4</td>
+    <td> </td>
+    <td>17 per unit</td>
+    <td><button type="button" onclick="addItem('Light cavalry', '17')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+    <td>Upgrade light cavalry to Numidian cavalry</td>
+    <td>5</td>
+    <td>3</td>
+    <td>2</td>
+    <td>0</td>
+    <td>6+</td>
+    <td>4</td>
+    <td>Feigned Flight</td>
+    <td>+2 per unit</td>
+    <td><button type="button" onclick="addItem('Numidian cavalry upgrade', '2')">Add</button></td>
+  </tr>
+  <tr class="default">
+    <td>Allied Gallic or Spanish medium cavalry</td>
+    <td>8</td>
+    <td>5</td>
+    <td>3</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td> </td>
+    <td>27 per unit</td>
+    <td><button type="button" onclick="addItem('Allied Medium cavalry', '27')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+    <td>Upgrade allied medium cavalry to tough fighters - up to 1 unit</td>
+    <td>8</td>
+    <td>5</td>
+    <td>3</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Tough Fighters</td>
+    <td>+1 per unit</td>
+    <td><button type="button" onclick="addItem('Tough fighters medium cavalry upgrade', '1')">Add</button></td>
+  </tr>
+    <tr class="default">
+    <td>Elephant with javelin-armed crew</td>
+    <td>4</td>
+    <td>3</td>
+    <td>1</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td>Elephant</td>
+    <td>23 per unit</td>
+    <td><button type="button" onclick="addItem('Elephant', '23')">Add</button></td>
+  </tr>
+</table><!-- comment -->
+<br>
+<table>
+  <tr class="default">
+      <td>Commander</td><!-- comment -->
+      <td>1 commander must be provided per division. </td>
+      <td>All commanders including general have leadership 8.</td><!-- comment -->
+      <td><button type="button" onclick="addItem('Commander', '0')">Add</button></td>
+  </tr>
+   <tr class="upgrade">
+      <td>Upgrade division commander to General</td><!-- comment -->
+      <td>1 commander must be provided per division. </td>
+      <td>All commanders including general have leadership 8.</td><!-- comment -->
+      <td><button type="button" onclick="addItem('General upgrade', '0')">Add</button></td>
+  </tr>
+   <tr class="upgrade">
+      <td>Upgrade commander to leadership 9</td><!-- comment -->
+      <td>The general can have leadership 9 at the following cost </td>
+      <td>+25 points.</td><!-- comment -->
+      <td><button type="button" onclick="addItem('Leadership upgrade', '25')">Add</button></td>
+  </tr>
+</table>   
+<br>
+           <h2 id= "unitBox">Army list</h2>
+           <h4>Division 1</h4>
+           <div id= "Division1"></div>
+           <br>
+           <h4>Division 2</h4>
+           <div id= "Division2"></div>
+           <br>
+           <h4>Division 3</h4>
+           <div id= "Division3"></div>
+           <br>
+           <h4>Points total:</h4>
+           <div id= "pointsTotal">0</div>
+           <br>
+    </body>
+</html>
