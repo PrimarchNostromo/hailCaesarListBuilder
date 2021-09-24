@@ -53,11 +53,11 @@ function removeItem(id, points, unitType = 0){
     document.getElementById("pointsTotal").innerHTML = 
             parseFloat(document.getElementById("pointsTotal").innerHTML) - parseFloat(points);
     //update unit counts
-    if (unitType == 'infantry')
+    if (unitType == infantry)
     {
        document.getElementById("infantry").innerHTML =  parseFloat(document.getElementById("infantry").innerHTML) - 1; 
     }
-    else if (unitType == 'skirmisher')
+    else if (unitType == skirmisher)
     {
       document.getElementById("skirmisher").innerHTML =  parseFloat(document.getElementById("skirmisher").innerHTML) - 1;   
     }
@@ -69,7 +69,7 @@ function removeItem(id, points, unitType = 0){
     {
         document.getElementById("cavalry").innerHTML =  parseFloat(document.getElementById("cavalry").innerHTML) - 1; 
     }
-    else if (unitType == 'elephant')
+    else if (unitType == elephant)
     {
         document.getElementById("elephant").innerHTML =  parseFloat(document.getElementById("elephant").innerHTML) - 1; 
     }
