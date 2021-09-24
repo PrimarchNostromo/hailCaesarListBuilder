@@ -1,3 +1,7 @@
+html{
+    background-color: #F8FCFF
+}
+
 button {
     padding: 7px;
     border: none;
@@ -22,7 +26,12 @@ table {
   border-collapse: collapse;
   width: 100%;
 }
-
+.upgrade{
+  background-color: #EBEBEB;
+}
+.default{
+    background-color: #E8F3FD
+}
 td, th {
   border: 1px solid black;
   text-align: left;
@@ -31,6 +40,3 @@ td, th {
 
 
 
-.upgrade{
-  background-color: #dddddd;
-}
