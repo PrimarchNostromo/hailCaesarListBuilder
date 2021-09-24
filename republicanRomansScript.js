@@ -5,7 +5,8 @@ var value = 1;
 
 
 //add a unit to the list
-function addItem(name, points) {
+//parameters: name of the unit to add, how many points they cost, what kind of unit they are (optional param)
+function addItem(name, points, unitType = "nothing") {
    // document.getElementById("unitBox").innerHTML += "<br>";
    //select which division these chumps go into
     var ddl = document.getElementById("dropdown");
@@ -13,18 +14,63 @@ function addItem(name, points) {
  
     //add the item to the list itself
     document.getElementById(selectedValue).innerHTML += "<div id='" + window.value + "'>" + name + " " + points 
-            + "<button type='button' onclick='removeItem(" + window.value + "," + points + ")'>Delete</button></div>";
+            + "<button type='button' onclick='removeItem(" + window.value + "," + points + "," + unitType +")'>Delete</button></div>";
     window.value++;
     //update points
     document.getElementById("pointsTotal").innerHTML = 
             parseFloat(document.getElementById("pointsTotal").innerHTML) + parseFloat(points);
+    
+    //update unit types
+    if (unitType == "infantry")
+    {
+       document.getElementById("infantry").innerHTML =  parseFloat(document.getElementById("infantry").innerHTML) + 1; 
+    }
+    else if (unitType == "skirmisher")
+    {
+      document.getElementById("skirmisher").innerHTML =  parseFloat(document.getElementById("skirmisher").innerHTML) + 1;   
+    }
+    else if (unitType == "missileInfantry")
+    {
+       document.getElementById("missileInfantry").innerHTML =  parseFloat(document.getElementById("missileInfantry").innerHTML) + 1;  
+    }
+    else if (unitType == "cavalry")
+    {
+        document.getElementById("cavalry").innerHTML =  parseFloat(document.getElementById("cavalry").innerHTML) + 1; 
+    }
+    else if (unitType == "elephant")
+    {
+        document.getElementById("elephant").innerHTML =  parseFloat(document.getElementById("elephant").innerHTML) + 1; 
+    }
 }
 
 //delete a unit from the list
-function removeItem(id, points){
+//parameters: name of the unit to subtract, how many points they cost, what kind of unit they are (optional param)
+function removeItem(id, points, unitType = 0){
+    //remove from the list builder
     var div = document.getElementById(id);
     div.remove();
     //update points
     document.getElementById("pointsTotal").innerHTML = 
             parseFloat(document.getElementById("pointsTotal").innerHTML) - parseFloat(points);
+    //update unit counts
+    if (unitType == 'infantry')
+    {
+       document.getElementById("infantry").innerHTML =  parseFloat(document.getElementById("infantry").innerHTML) - 1; 
+    }
+    else if (unitType == 'skirmisher')
+    {
+      document.getElementById("skirmisher").innerHTML =  parseFloat(document.getElementById("skirmisher").innerHTML) - 1;   
+    }
+    else if (unitType == missileInfantry)
+    {
+       document.getElementById("missileInfantry").innerHTML =  parseFloat(document.getElementById("missileInfantry").innerHTML) - 1;  
+    }
+    else if (unitType == cavalry)
+    {
+        document.getElementById("cavalry").innerHTML =  parseFloat(document.getElementById("cavalry").innerHTML) - 1; 
+    }
+    else if (unitType == 'elephant')
+    {
+        document.getElementById("elephant").innerHTML =  parseFloat(document.getElementById("elephant").innerHTML) - 1; 
+    }
     }
