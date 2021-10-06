@@ -1,3 +1,8 @@
+//FILE WAS RENAMED TO listBuilderScript.js, THIS FILE IS NO LONGER UP TO DATE
+//DO NOT USE
+
+
+
 //global variable for the list part
 var value = 1;
 
