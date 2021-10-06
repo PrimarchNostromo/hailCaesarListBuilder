@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
     <head>
         <title>Republican Romans</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="republicanRomansScript.js"></script>
+        <script src="listBuilderScript.js"></script>
     </head>
     <body>
 <h1>Republican Romans List Builder</h1>
-
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F10%2F62%2Fff%2F1062ff9f53434251a33a586b8d2f30e3.jpg&f=1&nofb=1" 
+     alt="republicanRomans" width="550" height="450">
 <p>These are the rules for making a Republican Roman army<p>
 <table class="default">
 
@@ -57,6 +54,7 @@ and open the template in the editor.
            </form>
            
 <p>Select a unit to add to your army</p>
+<p>Entries in the table will be either <span class = "default"> units </span> or <span class = "upgrade"> unit upgrades</span></p>
 <table>
   <tr>
     <th>Unit</th>
@@ -68,6 +66,7 @@ and open the template in the editor.
     <th>Stamina</th>
     <th>Special</th>
     <th>Points Value</th>
+    <th>Times Purchased</th>
     <th>Add to army</th>
   </tr>
   <tr class="default">
@@ -80,7 +79,8 @@ and open the template in the editor.
     <td>4</td>
     <td>Drilled</td>
     <td>23 per unit</td>
-    <td><button type="button" onclick="addItem('Hastati', '23', 'infantry')">Add</button></td>
+    <td id="hastati">0</td>
+    <td><button type="button" onclick="addItem('Hastati', '23', 'infantry', 'hastati')">Add</button></td>
   </tr>
   <tr class="upgrade">
     <td>As above, but with Tough Fighters</td>
@@ -92,7 +92,8 @@ and open the template in the editor.
     <td>4</td>
     <td>Drilled, Tough fighters</td>
     <td>+1 per unit</td>
-    <td><button type="button" onclick="addItem(' -Tough Hastati Upgrade', '1')">Add</button></td>
+    <td id="hastatitoughfighters">0</td>
+    <td><button type="button" onclick="addItem(' -Tough Hastati Upgrade', '1', 'upgrade', 'hastatitoughfighters')">Add</button></td>
   </tr>
   <tr class="default">
     <td>Principes heavy infantry armed with long spears and fielded as small units</td>
@@ -104,7 +105,8 @@ and open the template in the editor.
     <td>4</td>
     <td>Drilled</td>
     <td>23 per unit</td>
-    <td><button type="button" onclick="addItem('Principes', '23', 'infantry')">Add</button></td>
+    <td id="principes">0</td>
+    <td><button type="button" onclick="addItem('Principes', '23', 'infantry', 'principes')">Add</button></td>
   </tr>
   <tr class="upgrade">
     <td>As above, but with Stubborn</td>
@@ -116,7 +118,8 @@ and open the template in the editor.
     <td>4</td>
     <td>Drilled, Stubborn</td>
     <td>+2 per unit</td>
-    <td><button type="button" onclick="addItem(' -Stubborn Principes Upgrade', '2')">Add</button></td>
+    <td id="principesStubborn">0</td>
+    <td><button type="button" onclick="addItem(' -Stubborn Principes Upgrade', '2', 'upgrade', 'principesStubborn')">Add</button></td>
   </tr>
   <tr class="upgrade">
     <td>Reduction to make a pair of hastati/principes in the same division levy</td>
@@ -127,8 +130,9 @@ and open the template in the editor.
     <td>4+</td>
     <td>4</td>
     <td>Levy</td>
-    <td>-4 per unit</td>
-    <td><button type="button" onclick="addItem(' -Levy Principes/Hastati Upgrade', '-4')">Add</button></td>
+    <td>-8 per pair</td>
+    <td id="principesLevyReduction">0</td>
+    <td><button type="button" onclick="addItem(' -Levy Principes/Hastati Downgrade', '-8', 'upgrade', 'principesLevyReduction')">Add</button></td>
   </tr>
   <tr class="default">
     <td>Triarii heavy infantry armed with long spears and fielded as small units</td>
@@ -140,7 +144,8 @@ and open the template in the editor.
     <td>4</td>
     <td>Drilled, Elite, Stubborn</td>
     <td>28 per unit</td>
-    <td><button type="button" onclick="addItem('Triarii', '28', 'infantry')">Add</button></td>
+    <td id="triarii">0</td>
+    <td><button type="button" onclick="addItem('Triarii', '28', 'infantry', 'triarii')">Add</button></td>
   </tr>
   <tr class="upgrade">
     <td>As above, but with Valiant</td>
@@ -152,7 +157,8 @@ and open the template in the editor.
     <td>4</td>
     <td>Drilled, Elite, Stubborn, Valiant</td>
     <td>+2 per unit</td>
-    <td><button type="button" onclick="addItem(' -Valiant Triarii Upgrade', '2')">Add</button></td>
+    <td id="valiantTriarii">0</td>
+    <td><button type="button" onclick="addItem(' -Valiant Triarii Upgrade', '2', 'upgrade', 'valiantTriarii')">Add</button></td>
   </tr>
   <tr class="default">
     <td>Italian allied medium infantry armed with spears and/or javelins</td>
@@ -164,7 +170,8 @@ and open the template in the editor.
     <td>6</td>
     <td> </td>
     <td>23 per unit</td>
-    <td><button type="button" onclick="addItem('Italian Spears', '23', 'infantry')">Add</button></td>
+    <td id="italianSpears">0</td>
+    <td><button type="button" onclick="addItem('Italian Spears', '23', 'infantry', 'italianSpears')">Add</button></td>
   </tr>
   <tr class="upgrade">
     <td>As above, but Levy</td>
@@ -176,7 +183,8 @@ and open the template in the editor.
     <td>6</td>
     <td>Levy</td>
     <td>-3 per unit</td>
-    <td><button type="button" onclick="addItem(' -Italian Spears Levy downgrade', '-3')">Add</button></td>
+    <td id="levySpears">0</td>
+    <td><button type="button" onclick="addItem(' -Italian Spears Levy downgrade', '-3', 'upgrade', 'levySpears')">Add</button></td>
   </tr>
   <tr class="default">
     <td>Gallic or Celtiberian medium infantry warband armed with swords and javelins</td>
@@ -188,7 +196,8 @@ and open the template in the editor.
     <td>6</td>
     <td>Wild Fighters</td>
     <td>28 per unit</td>
-    <td><button type="button" onclick="addItem('Medium infantry Warband', '28', 'infantry')">Add</button></td>
+    <td id="gallicWarband">0</td>
+    <td><button type="button" onclick="addItem('Medium infantry Warband', '28', 'infantry', 'gallicWarband',)">Add</button></td>
   </tr>
   <tr class="upgrade">
     <td>Extra to field as a large unit</td>
@@ -200,7 +209,8 @@ and open the template in the editor.
     <td>8</td>
     <td>Wild Fighters</td>
     <td>+7 per unit</td>
-    <td><button type="button" onclick="addItem(' -Warband Large Upgrade', '7')">Add</button></td>
+    <td id="largeWarband">0</td>
+    <td><button type="button" onclick="addItem(' -Warband Large Upgrade', '7', 'upgrade', 'largeWarband')">Add</button></td>
   </tr>
   <tr class="default">
     <td>Velites or Spanish caetrati light infantry armed with javelins and fielded as small units</td>
@@ -212,7 +222,8 @@ and open the template in the editor.
     <td>4</td>
     <td> </td>
     <td>13 per unit</td>
-    <td><button type="button" onclick="addItem('Velites', '13', 'infantry')">Add</button></td>
+    <td id="Velites">0</td>
+    <td><button type="button" onclick="addItem('Velites', '13', 'infantry', 'Velites')">Add</button></td>
   </tr>
   <tr class="upgrade">
     <td>Extra to upgrade velites to tough fighters</td>
@@ -224,7 +235,8 @@ and open the template in the editor.
     <td>4</td>
     <td>Tough Fighters</td>
     <td>+1 per unit</td>
-    <td><button type="button" onclick="addItem(' -Velites tough fighters', '1')">Add</button></td>
+    <td id="toughFighterVelites">0</td>
+    <td><button type="button" onclick="addItem(' -Velites tough fighters', '1', 'upgrade', 'toughFighterVelites')">Add</button></td>
   </tr>
   <tr class="default">
     <td>Skirmishers armed with javelins and fielded as small units</td>
@@ -236,7 +248,8 @@ and open the template in the editor.
     <td>4</td>
     <td> </td>
     <td>11 per unit</td>
-    <td><button type="button" onclick="addItem('Skirmishers', '11', 'skirmisher')">Add</button></td>
+    <td id="Skirmishers">0</td>
+    <td><button type="button" onclick="addItem('Skirmishers', '11', 'skirmisher', 'Skirmishers' )">Add</button></td>
   </tr>
   <tr class="upgrade">
     <td>Give skirmishers slings instead of javelins (up to half the skirmisher units)</td>
@@ -248,7 +261,8 @@ and open the template in the editor.
     <td>4</td>
     <td> </td>
     <td>+1 per unit</td>
-    <td><button type="button" onclick="addItem(' -Slings upgrade', '1')">Add</button></td>
+    <td id="SkirmishersSlings">0</td>
+    <td><button type="button" onclick="addItem(' -Slings upgrade', '1', 'upgrade', 'SkirmishersSlings')">Add</button></td>
   </tr>
   <tr class="upgrade">
     <td>Upgrade slingers to baleric slingers</td>
@@ -260,7 +274,8 @@ and open the template in the editor.
     <td>4</td>
     <td>Marksmen</td>
     <td>+1 per unit</td>
-    <td><button type="button" onclick="addItem(' -Baleric Slingers', '1')">Add</button></td>
+    <td id="slingerMarksmen">0</td>
+    <td><button type="button" onclick="addItem(' -Baleric Slingers', '1', 'upgrade', 'slingerMarksmen')">Add</button></td>
   </tr>
   <tr class="upgrade">
     <td>Give skirmishers bows instead of javelins as Numidians or Cretan Greeks</td>
@@ -272,7 +287,8 @@ and open the template in the editor.
     <td>4</td>
     <td> </td>
     <td>+1 per unit</td>
-    <td><button type="button" onclick="addItem(' -Bowmen upgrade', '1')">Add</button></td>
+    <td id="bowmenUpgrade">0</td>
+    <td><button type="button" onclick="addItem(' -Bowmen upgrade', '1', 'upgrade', 'bowmenUpgrade')">Add</button></td>
   </tr>
   <tr class="upgrade">
     <td>Upgrade Cretan bowmen to marksmen</td>
@@ -284,7 +300,8 @@ and open the template in the editor.
     <td>4</td>
     <td>Marksmen</td>
     <td>+1 per unit</td>
-    <td><button type="button" onclick="addItem(' -Bowmen marksmen', '1')">Add</button></td>
+    <td id="bowmenMarksmen">0</td>
+    <td><button type="button" onclick="addItem(' -Bowmen marksmen', '1', 'upgrade', 'bowmenMarksmen')">Add</button></td>
   </tr>
   <tr class="default">
     <td>Romans, Latins, or allied Italian medium cavalry fielded as small units</td>
@@ -296,7 +313,8 @@ and open the template in the editor.
     <td>4</td>
     <td> </td>
     <td>19 per unit</td>
-    <td><button type="button" onclick="addItem('Medium cavalry', '19', 'cavalry')">Add</button></td>
+    <td id="mediumCav">0</td>
+    <td><button type="button" onclick="addItem('Medium cavalry', '19', 'cavalry', 'mediumCav')">Add</button></td>
   </tr>
   <tr class="default">
     <td>Light cavalry armed with javelins and fielded as small units</td>
@@ -308,7 +326,8 @@ and open the template in the editor.
     <td>4</td>
     <td> </td>
     <td>17 per unit</td>
-    <td><button type="button" onclick="addItem('Light cavalry', '17', 'cavalry')">Add</button></td>
+    <td id="lightCav">0</td>
+    <td><button type="button" onclick="addItem('Light cavalry', '17', 'cavalry', 'lightCav')">Add</button></td>
   </tr>
   <tr class="upgrade">
     <td>Upgrade light cavalry to Numidian cavalry</td>
@@ -320,7 +339,8 @@ and open the template in the editor.
     <td>4</td>
     <td>Feigned Flight</td>
     <td>+2 per unit</td>
-    <td><button type="button" onclick="addItem('Numidian cavalry upgrade', '2')">Add</button></td>
+    <td id="NumidianCavalryUpgrade">0</td>
+    <td><button type="button" onclick="addItem('Numidian cavalry upgrade', '2', 'upgrade', 'NumidianCavalryUpgrade')">Add</button></td>
   </tr>
 <tr class="upgrade">
     <td>Upgrade light cavalry to Tarentine cavalry</td>
@@ -332,7 +352,8 @@ and open the template in the editor.
     <td>4</td>
     <td>Stubborn, Elite</td>
     <td>+3 per unit</td>
-    <td><button type="button" onclick="addItem('Tarentine cavalry upgrade', '3')">Add</button></td>
+    <td id="tarentineLightCav">0</td>
+    <td><button type="button" onclick="addItem('Tarentine cavalry upgrade', '3', 'upgrade', 'tarentineLightCav')">Add</button></td>
   </tr>
   <tr class="default">
     <td>Allied Gallic or Spanish medium cavalry</td>
@@ -344,7 +365,8 @@ and open the template in the editor.
     <td>6</td>
     <td> </td>
     <td>27 per unit</td>
-    <td><button type="button" onclick="addItem('Allied Medium cavalry', '27', 'cavalry')">Add</button></td>
+    <td id="alliedMedCav">0</td>
+    <td><button type="button" onclick="addItem('Allied Medium cavalry', '27', 'cavalry', 'alliedMedCav')">Add</button></td>
   </tr>
   <tr class="upgrade">
     <td>Upgrade allied medium cavalry to tough fighters - up to 1 unit</td>
@@ -356,7 +378,8 @@ and open the template in the editor.
     <td>6</td>
     <td>Tough Fighters</td>
     <td>+1 per unit</td>
-    <td><button type="button" onclick="addItem('Tough fighters medium cavalry upgrade', '1')">Add</button></td>
+    <td id="toughFightersCav">0</td>
+    <td><button type="button" onclick="addItem('Tough fighters medium cavalry upgrade', '1', 'upgrade', 'alliedMedCav')">Add</button></td>
   </tr>
 </table><!-- comment -->
 <br>
@@ -370,7 +393,7 @@ and open the template in the editor.
    <tr class="upgrade">
       <td>Upgrade division commander to General</td><!-- comment -->
       <td>1 commander must be provided per division. </td>
-      <td>All commanders including general have leadership 8.</td><!-- comment -->
+      <td>Your army must have one General</td><!-- comment -->
       <td><button type="button" onclick="addItem('General upgrade', '0')">Add</button></td>
   </tr>
    <tr class="upgrade">
@@ -407,5 +430,6 @@ and open the template in the editor.
            <span>Cavalry</span>
            <span id="cavalry">0</span>
            <br>
+           <h5> Remember to follow your army list rules! </h5>
     </body>
 </html>
