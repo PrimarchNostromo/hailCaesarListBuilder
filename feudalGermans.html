@@ -10,12 +10,14 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="republicanRomansScript.js"></script>
+        <script src="listBuilderScript.js"></script>
     </head>
     <body>
 <h1>Feudal German List Builder</h1>
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fc4%2Ffd%2F75%2Fc4fd7561727190e82973b57d5902d8b8.jpg&f=1&nofb=1" 
+     alt="pikemen" width="450" height="450">
 
-<p>These are the rules for making a Feudal German army<p>
+<p>These are the rules for making a Feudal German army:<p>
 <table>
 
     <tr class="default">
@@ -54,7 +56,12 @@ and open the template in the editor.
            </form>
            
 <p>Select a unit to add to your army</p>
-<table>
+<p>Entries in the table will be either <span class = "default"> units </span> or <span class = "upgrade"> unit upgrades</span></p>
+<table> <!--For the 'add' buttons, you need the following info for the script to work properly:
+        name of the unit to add, 
+        how many points they cost, 
+        what kind of unit they are, 
+        and which row they are in-->
   <tr class="default">
     <th>Unit</th>
     <th>Clash</th>
@@ -380,7 +387,7 @@ and open the template in the editor.
   </tr>
    <tr class="upgrade">
       <td>Upgrade division commander to General</td><!-- comment -->
-      <td>1 commander must be provided per division. </td>
+      <td>Your army must have one General </td>
       <td>All commanders including general have leadership 8.</td><!-- comment -->
       <td><button type="button" onclick="addItem('General upgrade', '0')">Add</button></td>
   </tr>
@@ -388,6 +395,7 @@ and open the template in the editor.
 </table>   
 <br>
            <h2 id= "unitBox">Army list</h2>
+           
            <h4>Division 1</h4>
            <div id= "Division1"></div>
            <br>
@@ -413,5 +421,6 @@ and open the template in the editor.
            <span>Cavalry</span>
            <span id="cavalry">0</span>
            <br>
+           <h5> Remember to follow your army list rules! </h5>
     </body>
 </html>
