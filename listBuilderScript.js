@@ -44,6 +44,10 @@ function addItem(name, points, unitType, row) {
     {
         document.getElementById("elephant").innerHTML =  parseFloat(document.getElementById("elephant").innerHTML) + 1; 
     }
+    else if (unitType == "artillery")
+    {
+        document.getElementById("artillery").innerHTML =  parseFloat(document.getElementById("artillery").innerHTML) + 1; 
+    }
     else
     {
         //don't do anything
@@ -83,6 +87,10 @@ function removeItem(id, points, unitType, row){
     else if (unitType == "elephant")
     {
         document.getElementById("elephant").innerHTML =  parseFloat(document.getElementById("elephant").innerHTML) - 1; 
+    }
+    else if (unitType == "artillery")
+    {
+        document.getElementById("artillery").innerHTML =  parseFloat(document.getElementById("artillery").innerHTML) - 1; 
     }
     else if (unitType == "upgrade")
     {
