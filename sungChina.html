@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Sung China</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="listBuilderScript.js"></script>
+    </head>
+    <body>
+<h1>Sung China List Builder</h1>
+<img src="https://weaponsandwarfare.files.wordpress.com/2015/08/1194733-han-dynasty-army.jpeg" 
+     alt="pikemen" width="550" height="450">
+
+<p>These are the rules for making a Sung Chinese army:<p>
+<table>
+
+    <tr class="default">
+        <td>Infantry 50%</td><!-- comment -->
+        <td>At least 1/2 of the units must be non-skirmishing infantry</td>
+    </tr>
+    <tr class="default">
+        <td>Medium/heavy infantry in mixed ranks 50%+ of infantry</td><!-- comment -->
+        <td>At least half of the non-skirmisher infantry units in the army must be mixed medium or heavy infantry</td>
+    </tr>
+    <tr class="default">
+        <td>Cavalry up to 25%</td><!-- comment -->
+        <td>At least 1/4 of the units in the army can be cavalry</td>
+    </tr>
+    <tr class="default">
+        <td>Heavy/medium cavalry at least 50% of calvary</td><!-- comment -->
+        <td>At least 1/2 of the cavalry must be either heavy or medium cavalry</td>
+    </tr>
+    <tr class="default">
+        <td>Artillery - up to 25%</td><!-- comment -->
+        <td>Up to 1/4 of the units in the army can be artillery</td>
+    </tr>
+    <tr class="default">
+        <td>Divisions 4+ units</td><!-- comment -->
+        <td>Divisions must contain at least 4 units excluding skirmishers and must be led by a commander.</td>
+    </tr>
+    <tr class="default">
+        <td>Skirmishers per division 25% of infantry</td><!-- comment -->
+        <td>Divisions may contain up to a quarter as many skirmisher units as they contain non-skirmisher infantry</td>
+    </tr>
+</table>
+
+<p>Units will be added to the following division:</p><!-- this dropdown is used to select which division the troops go into -->
+           <form>
+             <select name = "dropdown" id="dropdown">
+                <option value = "Division1" selected>Division 1</option>
+                <option value = "Division2">Division 2</option>
+                <option value = "Division3">Division 3</option>
+             </select>
+           </form>
+           
+<p>Select a unit to add to your army</p>
+<p>Entries in the table will be either <span class = "default"> units </span> or <span class = "upgrade"> unit upgrades</span></p>
+<table> <!--For the 'add' buttons, you need the following info for the script to work properly:
+        name of the unit to add, 
+        how many points they cost, 
+        what kind of unit they are, 
+        and which row they are in-->
+  <tr class="default">
+    <th>Unit</th>
+    <th>Clash</th>
+    <th>Sustain</th>
+    <th>Short</th>
+    <th>Long</th>
+    <th>Morale</th>
+    <th>Stamina</th>
+    <th>Special</th>
+    <th>Points Value</th>
+    <th>Times Purchased</th>
+    <th>Add to army</th>
+  </tr>
+  <tr class="default">
+    <td>Medium infantry in mixed ranks with spears or polearms in front and crossbows and/or bows to the rear</td>
+    <td>6</td>
+    <td>6</td>
+    <td>3</td>
+    <td>3</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Chinese Crossbow</td>
+    <td>26 per unit</td>
+    <td id="mixedMedium">0</td>
+    <td><button type="button" onclick="addItem('Mixed Medium Infantry', '26', 'infantry', 'mixedMedium')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+    <td>Reduction to field as levy</td>
+    <td>6</td>
+    <td>6</td>
+    <td>3</td>
+    <td>3</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Chinese Crossbow, Levy</td>
+    <td>-3 per unit</td>
+    <td id="mediumLevyDowngrade">0</td>
+    <td><button type="button" onclick="addItem(' -Mixed Medium Levy downgrade', '-3', 'upgrade', 'mediumLevyDowngrade' )">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+    <td>Extra to field as heavy infantry in mixed ranks -- up to half</td>
+    <td>7</td>
+    <td>7</td>
+    <td>3</td>
+    <td>3</td>
+    <td>4+</td>
+    <td>6</td>
+    <td> </td>
+    <td>+3 per unit</td>
+    <td id="HeabyInfantry">0</td>
+    <td><button type="button" onclick="addItem(' -Mixed Heavy Infantry upgrade', '3', 'upgrade', 'HeabyInfantry')">Add</button></td>
+  </tr>
+     <tr class="default">
+    <td>Heavy Infantry guards with spears</td>
+    <td>7</td>
+    <td>7</td>
+    <td>3</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td>Elite, Stubborn</td>
+    <td>32 per unit</td>
+    <td id="HeavyGuards">0</td>
+    <td><button type="button" onclick="addItem('Heavy Guards', '32', 'infantry', 'HeavyGuards')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+    <td>Upgrade to give them double-handed swords or polearms</td>
+    <td>8</td>
+    <td>7</td>
+    <td>2/0</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td>Elite, Stubborn</td>
+    <td>+1 per unit</td>
+    <td id="HeavyGuardsTwoHanders">0</td>
+    <td><button type="button" onclick="addItem('Heavy Guard Two-handers', '1', 'upgrade', 'HeavyGuardsTwoHanders')">Add</button></td>
+  </tr>
+  <tr class="default">
+    <td>Medium infantry with crossbows</td>
+    <td>5</td>
+    <td>5</td>
+    <td>3</td>
+    <td>3</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Chinese Crossbows</td>
+    <td>24 per unit</td>
+    <td id="medCrossbows">0</td>
+    <td><button type="button" onclick="addItem('Medium Crossbows', '24', 'missileInfantry', 'medCrossbows')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+    <td>Downgrade medium crossbows to levy</td>
+    <td>6</td>
+    <td>6</td>
+    <td>3/0</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Chinese crossbow, levy</td>
+    <td>-3 per unit</td>
+    <td id="levyCrossbows">0</td>
+    <td><button type="button" onclick="addItem('-Medium Infantry Crossbows levy downgrade', '-3', 'upgrade', 'levyCrossbows')">Add</button></td>  
+  <tr class="default">
+    <td> Medium infantry with spears and/or swords</td>
+    <td>6</td>
+    <td>6</td>
+    <td>3</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td></td>
+    <td>23 per unit</td>
+    <td id="mercenaryMedInfantry">0</td>
+    <td><button type="button" onclick="addItem('Medium Infantry with spears/swords', '26', 'infantry', 'mercenaryMedInfantry')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+    <td>Downgrade medium sword/spearmen to levy</td>
+    <td>6</td>
+    <td>6</td>
+    <td>3/0</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Drilled</td>
+    <td>-3 per unit</td>
+    <td id="swordsmenLevyDowngrade">0</td>
+    <td><button type="button" onclick="addItem('-Medium Infantry sword/spearmen levy downgrade', '-3', 'upgrade', 'swordsmenLevyDowngrade')">Add</button></td>
+
+  <tr class="default">
+    <td>Light infantry bowmen</td>
+    <td>4</td>
+    <td>4</td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>6</td>
+    <td> </td>
+    <td>20 per unit</td>
+    <td id="lightInfantryBowmen">0</td>
+    <td><button type="button" onclick="addItem('Bowmen', '20', 'missileInfantry', 'lightInfantryBowmen')">Add</button></td>
+  </tr>
+
+
+  <tr class="default">
+    <td>Skirmishers armed with bows, fielded as small units</td>
+    <td>3</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>4</td>
+    <td></td>
+    <td>12 per unit</td>
+    <td id="skirmishers">0</td>
+    <td><button type="button" onclick="addItem('Skirmishers', '9', 'skirmisher', 'skirmishers')">Add</button></td>
+  </tr>
+    <tr class="upgrade">
+    <td>Field skirmishers as fire-lance armed -- up to one unit</td>
+    <td>3</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>4</td>
+    <td>Fire Lance</td>
+    <td>+2 per unit</td>
+    <td id="fireLance">0</td>
+    <td><button type="button" onclick="addItem('-Fire lance upgrade', '2', 'skirmisher', 'fireLance')">Add</button></td>
+  </tr>
+  
+  <tr class="default">
+    <td>Heavy cavalry with spears</td>
+    <td>9</td>
+    <td>6</td>
+    <td>3</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td> </td>
+    <td>30 per unit</td>
+    <td id="HeavyCav">0</td>
+    <td><button type="button" onclick="addItem('Heavy Cavalry', '33', 'cavalry', 'HeavyCav')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+    <td>Extra to give them spears and bows</td>
+    <td>9</td>
+    <td>6</td>
+    <td>3</td>
+    <td>2</td>
+    <td>4+</td>
+    <td>6</td>
+    <td></td>
+    <td>+2 per unit</td>
+    <td id="heavyCavBowmen">0</td>
+    <td><button type="button" onclick="addItem('-Heavy Cavalry bow upgrade', '2', 'upgrade', 'heavyCavBowmen' )">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+    <td>Extra to make heavy cav elite</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>Elite</td>
+    <td>+3 per unit</td>
+    <td id="heavyCavElite">0</td>
+    <td><button type="button" onclick="addItem('-Heavy Cavalry elite upgrade', '3', 'upgrade', 'heavyCavElite' )">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+    <td>Extra to make heavy cav drilled</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>As above, but with Drilled</td>
+    <td>+3 per unit</td>
+    <td id="heavyCavDrilled">0</td>
+    <td><button type="button" onclick="addItem('-Heavy Cavalry drilled upgrade', '3', 'upgrade', 'heavyCavDrilled' )">Add</button></td>
+  </tr> 
+  <tr class="default">
+    <td>Medium cavalry with spears</td>
+    <td>8</td>
+    <td>5</td>
+    <td>3</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td> </td>
+    <td>27 per unit</td>
+    <td id="medCav">0</td>
+    <td><button type="button" onclick="addItem('Medium cavalry', '27', 'cavalry', 'medCav')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+    <td>Extra to give medium cavalry spears and bows</td>
+    <td>8</td>
+    <td>5</td>
+    <td>3</td>
+    <td>2</td>
+    <td>5+</td>
+    <td>6</td>
+    <td> </td>
+    <td>+2 per unit</td>
+    <td id="medCavBowmen">0</td>
+    <td><button type="button" onclick="addItem('-bows medium cavalry upgrade', '2', 'upgrade', 'medCavBowmen')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+    <td>Reduction to make medium cavalry levy</td>
+    <td>8</td>
+    <td>5</td>
+    <td>3</td>
+    <td>2</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Levy</td>
+    <td>-3 per unit</td>
+    <td id="medCavLevy">0</td>
+    <td><button type="button" onclick="addItem('-levy medium cavalry downgrade', '-2', 'upgrade', 'medCavLevy')">Add</button></td>
+  </tr>
+  <tr class="default">
+    <td>Light cavalry armed with javelins and fielded as small units</td>
+    <td>5</td>
+    <td>3</td>
+    <td>2</td>
+    <td>0</td>
+    <td>6+</td>
+    <td>4</td>
+    <td> </td>
+    <td>17 per unit</td>
+    <td id="lightCav">0</td>
+    <td><button type="button" onclick="addItem('Light cavalry', '17', 'cavalry', 'lightCav')">Add</button></td>
+  </tr>
+  <tr class="default">
+    <td>Light cavalry armed with javelins and bows and fielded as small units</td>
+    <td>5</td>
+    <td>3</td>
+    <td>2</td>
+    <td>2</td>
+    <td>6+</td>
+    <td>4</td>
+    <td>Feigned flight</td>
+    <td>21 per unit</td>
+    <td id="lightCavBowmen">0</td>
+    <td><button type="button" onclick="addItem('Light cavalry bowmen', '21', 'cavalry', 'lightCavBowmen')">Add</button></td>
+  </tr>
+  <tr class="default">
+    <td>Light Artillery bolt or stone thrower</td>
+    <td>1</td>
+    <td>1</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>3</td>
+    <td> </td>
+    <td>15 per unit</td>
+    <td id="lightArty">0</td>
+    <td><button type="button" onclick="addItem('Light artillery', '15', 'artillery', 'lightArty')">Add</button></td>
+  </tr>
+  <tr class="default">
+    <td>Medium Artillery stone thrower</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>3</td>
+    <td>0</td>
+    <td>3</td>
+    <td> </td>
+    <td>20 per unit</td>
+    <td id="medArty">0</td>
+    <td><button type="button" onclick="addItem('Medium artillery', '23', 'artillery', 'medArty')">Add</button></td>
+  </tr>
+  <tr class="default">
+    <td>Heavy Artillery stone thrower</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>3</td>
+    <td>0</td>
+    <td>3</td>
+    <td> </td>
+    <td>23 per unit</td>
+    <td id="hevArty">0</td>
+    <td><button type="button" onclick="addItem('Heavy artillery', '23', 'artillery', 'hevArty')">Add</button></td>
+  </tr>
+  
+</table>
+<br>
+<table>
+  <tr class="default">
+      <td>Commander</td><!-- comment -->
+      <td>1 commander must be provided per division. </td>
+      <td>All commanders including general have leadership 8.</td><!-- comment -->
+      <td><button type="button" onclick="addItem('Commander', '0')">Add</button></td>
+  </tr>
+   <tr class="upgrade">
+      <td>Upgrade division commander to General</td><!-- comment -->
+      <td>Your army must have one General </td>
+      <td>All commanders including general have leadership 8.</td><!-- comment -->
+      <td><button type="button" onclick="addItem('General upgrade', '0')">Add</button></td>
+  </tr>
+
+</table>   
+<br>
+           <h2 id= "unitBox">Army list</h2>
+           
+           <h4>Division 1</h4>
+           <div id= "Division1"></div>
+           <br>
+           <h4>Division 2</h4>
+           <div id= "Division2"></div>
+           <br>
+           <h4>Division 3</h4>
+           <div id= "Division3"></div>
+           <br>
+           <h4>Points total:</h4>
+           <div id= "pointsTotal">0</div>
+           <br>
+           <!<!-- unit type totals -->
+           <span>Melee Infantry:</span>
+           <span id="infantry">0</span>
+           <br>
+           <span>Missile Infantry:</span>
+           <span id="missileInfantry">0</span>
+           <br>
+           <span>Skirmishers</span>
+           <span id="skirmisher">0</span>
+           <br>
+           <span>Cavalry</span>
+           <span id="cavalry">0</span>
+           <br>
+
+           <span>Artillery:</span>
+           <span id="artillery">0</span>
+           <br>
+           <h5> Remember to follow your army list rules! </h5>
+    </body>
+</html>
