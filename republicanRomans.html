@@ -61,6 +61,7 @@
         what kind of unit they are, 
         and which row they are in-->
   <tr>
+      <th></th>
     <th>Unit</th>
     <th>Clash</th>
     <th>Sustain</th>
@@ -74,7 +75,8 @@
     <th>Add to army</th>
   </tr>
   <tr class="default">
-    <td>Hastati or Principes heavy infantry armed with pila and fielded as small units</td>
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Rom_Hastati.png"></td>
+    <td>Hastati or Principes heavy infantry armed with pila and fielded as small units<div><em>These young men are the armoured front line of a Roman Legion.</em></div></td>
     <td>5</td>
     <td>5</td>
     <td>2</td>
@@ -87,6 +89,7 @@
     <td><button type="button" onclick="addItem('Hastati', '23', 'infantry', 'hastati')">Add</button></td>
   </tr>
   <tr class="upgrade">
+      <td></td>
     <td>As above, but with Tough Fighters</td>
     <td>5</td>
     <td>5</td>
@@ -100,7 +103,9 @@
     <td><button type="button" onclick="addItem(' -Tough Hastati Upgrade', '1', 'upgrade', 'hastatitoughfighters')">Add</button></td>
   </tr>
   <tr class="default">
-    <td>Principes heavy infantry armed with long spears and fielded as small units</td>
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Rom_Principes.png"></td>
+    <td>Principes heavy infantry armed with long spears and fielded as small units
+        <div><em>Wealthy, older Roman citizens, the principes are a heavy infantry force.</em></div></td>
     <td>5</td>
     <td>5</td>
     <td>2/0</td>
@@ -113,6 +118,7 @@
     <td><button type="button" onclick="addItem('Principes', '23', 'infantry', 'principes')">Add</button></td>
   </tr>
   <tr class="upgrade">
+      <td></td>
     <td>As above, but with Stubborn</td>
     <td>5</td>
     <td>5</td>
@@ -126,6 +132,7 @@
     <td><button type="button" onclick="addItem(' -Stubborn Principes Upgrade', '2', 'upgrade', 'principesStubborn')">Add</button></td>
   </tr>
   <tr class="upgrade">
+      <td></td>
     <td>Reduction to make a pair of hastati/principes in the same division levy</td>
     <td>5</td>
     <td>5</td>
@@ -139,7 +146,9 @@
     <td><button type="button" onclick="addItem(' -Levy Principes/Hastati Downgrade', '-8', 'upgrade', 'principesLevyReduction')">Add</button></td>
   </tr>
   <tr class="default">
-    <td>Triarii heavy infantry armed with long spears and fielded as small units</td>
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Rom_Triarii.png"></td>
+    <td>Triarii heavy infantry armed with long spears and fielded as small units
+        <div><em>Wealth, experience and age make these battle-hardened veterans a fearsome force.</em></div></td>
     <td>5</td>
     <td>5</td>
     <td>3/0</td>
@@ -152,6 +161,7 @@
     <td><button type="button" onclick="addItem('Triarii', '28', 'infantry', 'triarii')">Add</button></td>
   </tr>
   <tr class="upgrade">
+      <td></td>
     <td>As above, but with Valiant</td>
     <td>5</td>
     <td>5</td>
@@ -165,7 +175,8 @@
     <td><button type="button" onclick="addItem(' -Valiant Triarii Upgrade', '2', 'upgrade', 'valiantTriarii')">Add</button></td>
   </tr>
   <tr class="default">
-    <td>Italian allied medium infantry armed with spears and/or javelins</td>
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Infantry.png"></td>
+    <td>Italian allied medium infantry armed with spears and/or javelins <div><em>Able soldiers, well schooled in war, and eager to serve Rome.</em></div></td>
     <td>6</td>
     <td>6</td>
     <td>3</td>
@@ -178,6 +189,7 @@
     <td><button type="button" onclick="addItem('Italian Spears', '23', 'infantry', 'italianSpears')">Add</button></td>
   </tr>
   <tr class="upgrade">
+      <td></td>
     <td>As above, but Levy</td>
     <td>6</td>
     <td>6</td>
@@ -191,7 +203,8 @@
     <td><button type="button" onclick="addItem(' -Italian Spears Levy downgrade', '-3', 'upgrade', 'levySpears')">Add</button></td>
   </tr>
   <tr class="default">
-    <td>Gallic or Celtiberian medium infantry warband armed with swords and javelins</td>
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Gal_Warriors.png"></td>
+    <td>Gallic or Celtiberian medium infantry warband armed with swords and javelins<div><em>A Gaul may skilfully swing a longsword for Rome and remain a Gaul.</em></div></td>
     <td>9</td>
     <td>6</td>
     <td>2</td>
@@ -202,8 +215,8 @@
     <td>28 per unit</td>
     <td id="gallicWarband">0</td>
     <td><button type="button" onclick="addItem('Medium infantry Warband', '28', 'infantry', 'gallicWarband',)">Add</button></td>
-  </tr>
   <tr class="upgrade">
+      <td></td>
     <td>Extra to field as a large unit</td>
     <td>11</td>
     <td>8</td>
@@ -217,7 +230,9 @@
     <td><button type="button" onclick="addItem(' -Warband Large Upgrade', '7', 'upgrade', 'largeWarband')">Add</button></td>
   </tr>
   <tr class="default">
-    <td>Velites or Spanish caetrati light infantry armed with javelins and fielded as small units</td>
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Rom_Velites.png"></td>
+      <td>Velites or Spanish caetrati light infantry armed with javelins and fielded as small units
+          <div><em>These javelin-armed skirmishers are fast moving and lightly armoured.</em></div></td>
     <td>3</td>
     <td>3</td>
     <td>2</td>
@@ -229,7 +244,9 @@
     <td id="Velites">0</td>
     <td><button type="button" onclick="addItem('Velites', '13', 'infantry', 'Velites')">Add</button></td>
   </tr>
+
   <tr class="upgrade">
+      <td></td>
     <td>Extra to upgrade velites to tough fighters</td>
     <td>3</td>
     <td>3</td>
@@ -243,7 +260,8 @@
     <td><button type="button" onclick="addItem(' -Velites tough fighters', '1', 'upgrade', 'toughFighterVelites')">Add</button></td>
   </tr>
   <tr class="default">
-    <td>Skirmishers armed with javelins and fielded as small units</td>
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Rom_Leves.png"></td>
+      <td>Skirmishers armed with javelins and fielded as small units <div><em>Even a poor man can throw a javelin with skill.</em></div></td>
     <td>3</td>
     <td>2</td>
     <td>2</td>
@@ -256,7 +274,8 @@
     <td><button type="button" onclick="addItem('Skirmishers', '11', 'skirmisher', 'Skirmishers' )">Add</button></td>
   </tr>
   <tr class="upgrade">
-    <td>Give skirmishers slings instead of javelins (up to half the skirmisher units)</td>
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Ibe_Slingers.png"></td>
+      <td>Give skirmishers slings instead of javelins (up to half the skirmisher units)<div><em>A good slinger is worth his weight in slingshot, many times over.</em></div></td>
     <td>2</td>
     <td>2</td>
     <td>2</td>
@@ -269,7 +288,8 @@
     <td><button type="button" onclick="addItem(' -Slings upgrade', '1', 'upgrade', 'SkirmishersSlings')">Add</button></td>
   </tr>
   <tr class="upgrade">
-    <td>Upgrade slingers to baleric slingers</td>
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Ibe_Balearic_Slingers.png"></td>
+    <td>Upgrade slingers to baleric slingers<div><em>If a target can be seen, the sling stone is already on its way</em></div></td>
     <td>2</td>
     <td>2</td>
     <td>2</td>
@@ -282,7 +302,8 @@
     <td><button type="button" onclick="addItem(' -Baleric Slingers', '1', 'upgrade', 'slingerMarksmen')">Add</button></td>
   </tr>
   <tr class="upgrade">
-    <td>Give skirmishers bows instead of javelins as Numidians or Cretan Greeks</td>
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Gre_Cretan_Archers.png"></td>
+    <td>Give skirmishers bows instead of javelins as Numidians or Cretan Greeks<div><em>Give a Cretan a bow, and he will conquer in the name of Rome.</em></div></td>
     <td>2</td>
     <td>2</td>
     <td>2</td>
@@ -295,6 +316,7 @@
     <td><button type="button" onclick="addItem(' -Bowmen upgrade', '1', 'upgrade', 'bowmenUpgrade')">Add</button></td>
   </tr>
   <tr class="upgrade">
+      <td></td>
     <td>Upgrade Cretan bowmen to marksmen</td>
     <td>2</td>
     <td>2</td>
@@ -308,7 +330,9 @@
     <td><button type="button" onclick="addItem(' -Bowmen marksmen', '1', 'upgrade', 'bowmenMarksmen')">Add</button></td>
   </tr>
   <tr class="default">
-    <td>Romans, Latins, or allied Italian medium cavalry fielded as small units</td>
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Rom_Legionary_Cav.png"></td>
+      <td>Roman Equites or allied Italian medium cavalry fielded as small units
+          <div><em>The cavalry elite of Roman society can be among its most effective defenders.</em></div></td>
     <td>6</td>
     <td>3</td>
     <td>2</td>
@@ -321,7 +345,9 @@
     <td><button type="button" onclick="addItem('Medium cavalry', '19', 'cavalry', 'mediumCav')">Add</button></td>
   </tr>
   <tr class="default">
-    <td>Light cavalry armed with javelins and fielded as small units</td>
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Ibe_Cav.png"></td>
+    <td>Light cavalry armed with javelins and fielded as small units
+    <div><em>Light horsemen are always useful as a general's eyes and ears.</em></div></td>
     <td>5</td>
     <td>3</td>
     <td>2</td>
@@ -334,7 +360,9 @@
     <td><button type="button" onclick="addItem('Light cavalry', '17', 'cavalry', 'lightCav')">Add</button></td>
   </tr>
   <tr class="upgrade">
-    <td>Upgrade light cavalry to Numidian cavalry</td>
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Num_Cav.png"></td>
+    <td>Upgrade light cavalry to Numidian cavalry
+        <div><em>Numidians are expert mounted skirmishers, able to strike and withdraw quickly.</em></div></td>
     <td>5</td>
     <td>3</td>
     <td>2</td>
@@ -347,7 +375,9 @@
     <td><button type="button" onclick="addItem('Numidian cavalry upgrade', '2', 'upgrade', 'NumidianCavalryUpgrade')">Add</button></td>
   </tr>
 <tr class="upgrade">
-    <td>Upgrade light cavalry to Tarentine cavalry</td>
+    <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Gre_Tarantine_cav.png"></td>
+    <td>Upgrade light cavalry to Tarentine cavalry
+        <div><em>Good, skilled horsemen will always find a place in the ranks of the Roman army.</em></div></td>
     <td>5</td>
     <td>3</td>
     <td>2</td>
@@ -360,7 +390,9 @@
     <td><button type="button" onclick="addItem('Tarentine cavalry upgrade', '3', 'upgrade', 'tarentineLightCav')">Add</button></td>
   </tr>
   <tr class="default">
-    <td>Allied Gallic or Spanish medium cavalry</td>
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Cav.png"></td>
+    <td>Allied Gallic or Spanish medium cavalry
+        <div><em>Loyal auxiliaries are a useful cavalry force.</em></div></td>
     <td>8</td>
     <td>5</td>
     <td>3</td>
@@ -373,6 +405,7 @@
     <td><button type="button" onclick="addItem('Allied Medium cavalry', '27', 'cavalry', 'alliedMedCav')">Add</button></td>
   </tr>
   <tr class="upgrade">
+      <td></td>
     <td>Upgrade allied medium cavalry to tough fighters - up to 1 unit</td>
     <td>8</td>
     <td>5</td>
@@ -389,13 +422,15 @@
 <br>
 <table>
   <tr class="default">
-      <td>Commander</td><!-- comment -->
+      <td>Commander
+      <div><em>Command must be exercised in person to be effective.</em></div></td><!-- comment -->
       <td>1 commander must be provided per division. </td>
       <td>All commanders including general have leadership 8.</td><!-- comment -->
       <td><button type="button" onclick="addItem('Commander', '0')">Add</button></td>
   </tr>
    <tr class="upgrade">
-      <td>Upgrade division commander to General</td><!-- comment -->
+      <td>Upgrade division commander to General
+          <div><em>Romans should be led from the front.</em></div></td><!-- comment -->
       <td>1 commander must be provided per division. </td>
       <td>Your army must have one General</td><!-- comment -->
       <td><button type="button" onclick="addItem('General upgrade', '0')">Add</button></td>
