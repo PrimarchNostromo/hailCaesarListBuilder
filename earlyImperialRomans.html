@@ -2,17 +2,17 @@
 
 <html>
     <head>
-        <title>Republican Romans</title>
+        <title>Early Imperial Roman</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="listBuilderScript.js"></script>
     </head>
     <body>
-<h1>Republican Romans List Builder</h1>
+<h1>Early Imperial Roman List Builder</h1>
 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F89%2Fc0%2F85%2F89c08597f103fb2418b9b5eaf58d74a9.jpg&f=1&nofb=1" 
      alt="republicanRomans" width="550" height="450">
-<p>These are the rules for making a Republican Roman army<p>
+<p>These are the rules for making a Early Imperial Roman army<p>
 <table class="default">
 
     <tr>
@@ -73,7 +73,7 @@
     <th>Add to army</th>
   </tr>
   <tr class="default">
-      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Rom_Legionaries.png"></td>
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Rom_Legionary_Cohort.png"></td>
     <td>Legionary heavy infantry armed with pila and swords<div><em>The classic heavy infantry, with good armour and exceptional morale.</em></div></td>
     <td>7</td>
     <td>7</td>
@@ -230,6 +230,34 @@
     <td id="mediumBowmen">0</td>
     <td><button type="button" onclick="addItem('Medium Bowmen', '24', 'missileInfantry', 'mediumBowmen')">Add</button></td>
   </tr>
+    <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Dac_Bowmen.png"></td>
+    <td>Auxiliary light infantry archers<div><em>Bowmen will always find a use, no matter their quality.</em></div></td>
+    <td>4</td>
+    <td>4</td>
+    <td>3</td>
+    <td>3</td>
+    <td>6+</td>
+    <td>6</td>
+    <td></td>
+    <td>21 per unit</td>
+    <td id="lightBowmen">0</td>
+    <td><button type="button" onclick="addItem('Light Bowmen', '21', 'missileInfantry', 'lightBowmen')">Add</button></td>
+  </tr>
+    <tr class="upgrade">
+      <td></td>
+    <td>Reduction to field archers as small units</td>
+    <td>3</td>
+    <td>3</td>
+    <td>2</td>
+    <td>2</td>
+    <td>6+</td>
+    <td>4</td>
+    <td> </td>
+    <td>-6 per unit</td>
+    <td id="bowmenDowngrade">0</td>
+    <td><button type="button" onclick="addItem(' -Bowmen small downgrade', '-6', 'upgrade', 'bowmenDowngrade')">Add</button></td>
+  </tr>
   
   <tr class="default">
       <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Rom_Leves.png"></td>
@@ -245,77 +273,84 @@
     <td id="Skirmishers">0</td>
     <td><button type="button" onclick="addItem('Skirmishers', '11', 'skirmisher', 'Skirmishers' )">Add</button></td>
   </tr>
-  <tr class="upgrade">
-      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Ibe_Slingers.png"></td>
-      <td>Give skirmishers slings instead of javelins (up to half the skirmisher units)<div><em>A good slinger is worth his weight in slingshot, many times over.</em></div></td>
-    <td>2</td>
-    <td>2</td>
-    <td>2</td>
-    <td>0</td>
-    <td>0</td>
-    <td>4</td>
-    <td> </td>
-    <td>+1 per unit</td>
-    <td id="SkirmishersSlings">0</td>
-    <td><button type="button" onclick="addItem(' -Slings upgrade', '1', 'upgrade', 'SkirmishersSlings')">Add</button></td>
-  </tr>
-  <tr class="upgrade">
-      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Ibe_Balearic_Slingers.png"></td>
-    <td>Upgrade slingers to baleric slingers<div><em>If a target can be seen, the sling stone is already on its way</em></div></td>
-    <td>2</td>
-    <td>2</td>
-    <td>2</td>
-    <td>0</td>
-    <td>0</td>
-    <td>4</td>
-    <td>Marksmen</td>
-    <td>+1 per unit</td>
-    <td id="slingerMarksmen">0</td>
-    <td><button type="button" onclick="addItem(' -Baleric Slingers', '1', 'upgrade', 'slingerMarksmen')">Add</button></td>
-  </tr>
-  <tr class="upgrade">
-      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Gre_Cretan_Archers.png"></td>
-    <td>Give skirmishers bows instead of javelins as Numidians or Cretan Greeks<div><em>Give a Cretan a bow, and he will conquer in the name of Rome.</em></div></td>
-    <td>2</td>
-    <td>2</td>
-    <td>2</td>
-    <td>0</td>
-    <td>0</td>
-    <td>4</td>
-    <td> </td>
-    <td>+1 per unit</td>
-    <td id="bowmenUpgrade">0</td>
-    <td><button type="button" onclick="addItem(' -Bowmen upgrade', '1', 'upgrade', 'bowmenUpgrade')">Add</button></td>
-  </tr>
-  <tr class="upgrade">
-      <td></td>
-    <td>Upgrade Cretan bowmen to marksmen</td>
-    <td>2</td>
-    <td>2</td>
-    <td>2</td>
-    <td>0</td>
-    <td>0</td>
-    <td>4</td>
-    <td>Marksmen</td>
-    <td>+1 per unit</td>
-    <td id="bowmenMarksmen">0</td>
-    <td><button type="button" onclick="addItem(' -Bowmen marksmen', '1', 'upgrade', 'bowmenMarksmen')">Add</button></td>
-  </tr>
+  
   <tr class="default">
-      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Rom_Legionary_Cav.png"></td>
-      <td>Roman Equites or allied Italian medium cavalry fielded as small units
-          <div><em>The cavalry elite of Roman society can be among its most effective defenders.</em></div></td>
-    <td>6</td>
-    <td>3</td>
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Ibe_Slingers.png"></td>
+      <td>Skirmishers armed with slings or bows and fielded as small units<div><em>A good slinger is worth his weight in slingshot, many times over.</em></div></td>
     <td>2</td>
+    <td>2</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>4</td>
+    <td> </td>
+    <td>12 per unit</td>
+    <td id="SkirmishersSlings">0</td>
+    <td><button type="button" onclick="addItem('Slingers', '12', 'upgrade', 'SkirmishersSlings')">Add</button></td>
+  </tr>
+ 
+ 
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Gre_Citizen_Cav.png"></td>
+      <td>Auxiliary medium cavalry with spears and/or javelins
+          <div><em>Loyal auxiliaries are a useful cavalry force</em></div></td>
+    <td>8</td>
+    <td>5</td>
+    <td>3</td>
     <td>0</td>
     <td>5+</td>
-    <td>4</td>
+    <td>6</td>
     <td> </td>
-    <td>19 per unit</td>
-    <td id="mediumCav">0</td>
-    <td><button type="button" onclick="addItem('Medium cavalry', '19', 'cavalry', 'mediumCav')">Add</button></td>
+    <td>27 per unit</td>
+    <td id="AuxMediumCav">0</td>
+    <td><button type="button" onclick="addItem('Auxiliary Medium cavalry', '27', 'cavalry', 'AuxMediumCav')">Add</button></td>
   </tr>
+    <tr class="upgrade">
+      <td></td>
+      <td>Extra to give medium cavalry kontos - up to 1 unit</td>
+    <td>8</td>
+    <td>5</td>
+    <td>3/0</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td> </td>
+    <td>+3 per unit</td>
+    <td id="kontosUpgrade">0</td>
+    <td><button type="button" onclick="addItem('-Kontos Upgrade', '1', 'cavalry', 'kontosUpgrade')">Add</button></td>
+  </tr>
+  
+    <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Ita_Socii_Equites_Extraordinarii.png"></td>
+      <td>Auxiliary heavy cavalry with spears and/or javelins - up to 1 unit
+          <div><em>These heavy cavalry give excellent account of themselves in close-combat</em></div></td>
+    <td>8</td>
+    <td>5</td>
+    <td>3</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td> </td>
+    <td>28 per unit</td>
+    <td id="AuxHeavyCav">0</td>
+    <td><button type="button" onclick="addItem('Auxiliary Heavy cavalry', '27', 'cavalry', 'AuxHeavyCav')">Add</button></td>
+  </tr>
+  
+     <tr class="upgrade">
+      <td></td>
+      <td>Extra to make heavy cavalry cataphracts</td>
+    <td>8</td>
+    <td>5</td>
+    <td>3</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td> </td>
+    <td>+1 per unit</td>
+    <td id="cataphractUpgrade">0</td>
+    <td><button type="button" onclick="addItem('Cataphracts upgrade', '1', 'cavalry', 'cataphractUpgrade')">Add</button></td>
+  </tr>
+  
   <tr class="default">
       <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Ibe_Cav.png"></td>
     <td>Light cavalry armed with javelins and fielded as small units
@@ -346,49 +381,91 @@
     <td id="NumidianCavalryUpgrade">0</td>
     <td><button type="button" onclick="addItem('Numidian cavalry upgrade', '2', 'upgrade', 'NumidianCavalryUpgrade')">Add</button></td>
   </tr>
-<tr class="upgrade">
-    <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Gre_Tarantine_cav.png"></td>
-    <td>Upgrade light cavalry to Tarentine cavalry
-        <div><em>Good, skilled horsemen will always find a place in the ranks of the Roman army.</em></div></td>
+ <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Par_Horse_Archers.png"></td>
+    <td>Light cavalry armed with bows and fielded as small units
+    <div><em>No Roman commander worth his salt ignores the possibilities of horse archers.</em></div></td>
     <td>5</td>
     <td>3</td>
     <td>2</td>
-    <td>0</td>
+    <td>2</td>
     <td>6+</td>
     <td>4</td>
-    <td>Stubborn, Elite</td>
+    <td>Feigned flight</td>
+    <td>21 per unit</td>
+    <td id="horseArchers">0</td>
+    <td><button type="button" onclick="addItem('Light cavalry archers', '21', 'cavalry', 'horseArchers')">Add</button></td>
+  </tr> 
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Ara_Camel_Archers.png"></td>
+    <td>Camel-mounted light cavalry with bows and javelins fielded as a small unit - up to 1 unit
+    <div><em>Camels make useful mounts for archers, if only because they upset horses!</em></div></td>
+    <td>4</td>
+    <td>3</td>
+    <td>2</td>
+    <td>2</td>
+    <td>6+</td>
+    <td>4</td>
+    <td>Feigned flight</td>
+    <td>20 per unit</td>
+    <td id="camelArchers">0</td>
+    <td><button type="button" onclick="addItem('Camel archers', '20', 'cavalry', 'camelArchers')">Add</button></td>
+  </tr>  
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Rom_Scorpion_Bastion.png"></td>
+    <td>Light Artillery scorpion bolt thrower<div><em>These small ballistae fire bolts that can pass through a man.</em></div></td>
+    <td>1</td>
+    <td>1</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>3</td>
+    <td>Drilled</td>
+    <td>18 per unit</td>
+    <td id="lightArty">0</td>
+    <td><button type="button" onclick="addItem('Light artillery', '15', 'artillery', 'lightArty')">Add</button></td>
+  </tr>
+    <tr class="upgrade">
+        <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Rom_Cheiroballistra.png"></td>
+    <td>Extra to mount scorpions on carts as carroballistae<div><em>Mounted on small carts, these ballistae have firepower and mobility.</em></div></td>
+    <td>1</td>
+    <td>1</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>3</td>
+    <td>Drilled</td>
     <td>+3 per unit</td>
-    <td id="tarentineLightCav">0</td>
-    <td><button type="button" onclick="addItem('Tarentine cavalry upgrade', '3', 'upgrade', 'tarentineLightCav')">Add</button></td>
+    <td id="lightArty">0</td>
+    <td><button type="button" onclick="addItem('Light artillery', '3', 'artillery', 'lightArty')">Add</button></td>
   </tr>
   <tr class="default">
-      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Cav.png"></td>
-    <td>Allied Gallic or Spanish medium cavalry
-        <div><em>Loyal auxiliaries are a useful cavalry force.</em></div></td>
-    <td>8</td>
-    <td>5</td>
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Rom_Large_Onager.png"></td>
+    <td>Medium Artillery onagers<div><em>The kick of the wild ass can bring down cities and kings.</em></div></td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
     <td>3</td>
     <td>0</td>
-    <td>5+</td>
-    <td>6</td>
+    <td>3</td>
     <td> </td>
-    <td>27 per unit</td>
-    <td id="alliedMedCav">0</td>
-    <td><button type="button" onclick="addItem('Allied Medium cavalry', '27', 'cavalry', 'alliedMedCav')">Add</button></td>
+    <td>20 per unit</td>
+    <td id="medArty">0</td>
+    <td><button type="button" onclick="addItem('Medium artillery', '23', 'artillery', 'medArty')">Add</button></td>
   </tr>
-  <tr class="upgrade">
-      <td></td>
-    <td>Upgrade allied medium cavalry to tough fighters - up to 1 unit</td>
-    <td>8</td>
-    <td>5</td>
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Rom_Ballista.png"></td>
+    <td>Heavy Artillery ballistae<div><em>Ballistae can shoot with deadly accuracy over surprising distances.</em></div></td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
     <td>3</td>
     <td>0</td>
-    <td>5+</td>
-    <td>6</td>
-    <td>Tough Fighters</td>
-    <td>+1 per unit</td>
-    <td id="toughFightersCav">0</td>
-    <td><button type="button" onclick="addItem('Tough fighters medium cavalry upgrade', '1', 'upgrade', 'alliedMedCav')">Add</button></td>
+    <td>3</td>
+    <td> </td>
+    <td>23 per unit</td>
+    <td id="hevArty">0</td>
+    <td><button type="button" onclick="addItem('Heavy artillery', '23', 'artillery', 'hevArty')">Add</button></td>
   </tr>
 </table><!-- comment -->
 <br>
@@ -440,6 +517,10 @@
            <br>
            <span>Cavalry</span>
            <span id="cavalry">0</span>
+           <br>
+
+           <span>Artillery:</span>
+           <span id="artillery">0</span>
            <br>
            <h5> Remember to follow your army list rules! </h5>
     </body>
