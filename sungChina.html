@@ -67,6 +67,7 @@ and open the template in the editor.
         what kind of unit they are, 
         and which row they are in-->
   <tr class="default">
+      <th></th>
     <th>Unit</th>
     <th>Clash</th>
     <th>Sustain</th>
@@ -80,7 +81,9 @@ and open the template in the editor.
     <th>Add to army</th>
   </tr>
   <tr class="default">
-    <td>Medium infantry in mixed ranks with spears or polearms in front and crossbows and/or bows to the rear</td>
+      <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/3k_dlc07_unit_wood_quingzhou_halberds.png"></td>
+    <td>Medium infantry in mixed ranks with spears or polearms in front and crossbows and/or bows to the rear
+        <div><em>The reach of these warriors extends and contracts; accuracy with the bow and spear targets distant and nearby enemies alike.</em></div></td>
     <td>6</td>
     <td>6</td>
     <td>3</td>
@@ -93,7 +96,8 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem('Mixed Medium Infantry', '26', 'infantry', 'mixedMedium')">Add</button></td>
   </tr>
   <tr class="upgrade">
-    <td>Reduction to field as levy</td>
+      <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/3k_main_unit_wood_ji_militia.png"></td>
+    <td>Reduction to field as levy<div><em>Peasant militia armed with polearms; an expendable but versatile main force on the frontlines.</em></div></td>
     <td>6</td>
     <td>6</td>
     <td>3</td>
@@ -106,7 +110,8 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem(' -Mixed Medium Levy downgrade', '-3', 'upgrade', 'mediumLevyDowngrade' )">Add</button></td>
   </tr>
   <tr class="upgrade">
-    <td>Extra to field as heavy infantry in mixed ranks -- up to half</td>
+      <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/3k_main_unit_wood_spear_warriors.png"></td>
+    <td>Extra to field as heavy infantry in mixed ranks -- up to half<div><em>With spears thrust to the fore, these iron-clad warriors target armoured enemies.</em></div></td>
     <td>7</td>
     <td>7</td>
     <td>3</td>
@@ -119,7 +124,8 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem(' -Mixed Heavy Infantry upgrade', '3', 'upgrade', 'HeabyInfantry')">Add</button></td>
   </tr>
      <tr class="default">
-    <td>Heavy Infantry guards with spears</td>
+         <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/3k_main_unit_wood_spear_guards.png"></td>
+    <td>Heavy Infantry guards with spears<div><em>These infantry protect the flanks; their shields guard against enemy missiles, while enemy cavalry skewer themselves on their spears.</em></div></td>
     <td>7</td>
     <td>7</td>
     <td>3</td>
@@ -132,7 +138,8 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem('Heavy Guards', '32', 'infantry', 'HeavyGuards')">Add</button></td>
   </tr>
   <tr class="upgrade">
-    <td>Upgrade to give them double-handed swords or polearms</td>
+      <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/3k_main_unit_wood_protectors_of_heaven.png"></td>
+    <td>Upgrade to give them double-handed swords or polearms<div><em>Personally selected by the emperor, these heavily-armoured warriors are the vanguard of the frontline.</em></div></td>
     <td>8</td>
     <td>7</td>
     <td>2/0</td>
@@ -145,7 +152,8 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem('Heavy Guard Two-handers', '1', 'upgrade', 'HeavyGuardsTwoHanders')">Add</button></td>
   </tr>
   <tr class="default">
-    <td>Medium infantry with crossbows</td>
+      <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/3k_main_unit_water_crossbowmen.png"></td>
+    <td>Medium infantry with crossbows<div><em>Soldiers armed with long-range crossbows powerful enough to pierce enemy armour and defences.</em></div></td>
     <td>5</td>
     <td>5</td>
     <td>3</td>
@@ -158,6 +166,7 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem('Medium Crossbows', '24', 'missileInfantry', 'medCrossbows')">Add</button></td>
   </tr>
   <tr class="upgrade">
+      <td></td>
     <td>Downgrade medium crossbows to levy</td>
     <td>6</td>
     <td>6</td>
@@ -170,7 +179,8 @@ and open the template in the editor.
     <td id="levyCrossbows">0</td>
     <td><button type="button" onclick="addItem('-Medium Infantry Crossbows levy downgrade', '-3', 'upgrade', 'levyCrossbows')">Add</button></td>  
   <tr class="default">
-    <td> Medium infantry with spears and/or swords</td>
+      <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/3k_dlc07_unit_metal_northern_sabre_infantry.png"></td>
+    <td> Medium infantry with spears and/or swords<div><em>Let the rattle of countless sabres presage war's coming.</em></div></td>
     <td>6</td>
     <td>6</td>
     <td>3</td>
@@ -183,6 +193,7 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem('Medium Infantry with spears/swords', '26', 'infantry', 'mercenaryMedInfantry')">Add</button></td>
   </tr>
   <tr class="upgrade">
+      <td></td>
     <td>Downgrade medium sword/spearmen to levy</td>
     <td>6</td>
     <td>6</td>
@@ -196,7 +207,8 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem('-Medium Infantry sword/spearmen levy downgrade', '-3', 'upgrade', 'swordsmenLevyDowngrade')">Add</button></td>
 
   <tr class="default">
-    <td>Light infantry bowmen</td>
+      <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/3k_main_unit_water_archers.png"></td>
+    <td>Light infantry bowmen<div><em>Highly-trained bowmen who excel when unleashing rapid volleys of arrows to slow and supress cavalry charges.</em></div></td>
     <td>4</td>
     <td>4</td>
     <td>3</td>
@@ -211,7 +223,8 @@ and open the template in the editor.
 
 
   <tr class="default">
-    <td>Skirmishers armed with bows, fielded as small units</td>
+      <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/3k_main_unit_water_archer_militia.png"></td>
+    <td>Skirmishers armed with bows, fielded as small units<div><em>Archers equipped with composite bows for long-range harassment of enemies</em></div></td>
     <td>3</td>
     <td>2</td>
     <td>2</td>
@@ -224,7 +237,8 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem('Skirmishers', '9', 'skirmisher', 'skirmishers')">Add</button></td>
   </tr>
     <tr class="upgrade">
-    <td>Field skirmishers as fire-lance armed -- up to one unit</td>
+        <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/3k_dlc06_unit_water_juggernaut.png"></td>
+    <td>Field skirmishers as fire-lance armed -- up to one unit<div><em>Sometimes brute strength and relentless force will win the day.</em></div></td>
     <td>3</td>
     <td>2</td>
     <td>2</td>
@@ -238,7 +252,8 @@ and open the template in the editor.
   </tr>
   
   <tr class="default">
-    <td>Heavy cavalry with spears</td>
+      <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/3k_dlc04_unit_fire_imperial_lancer_cavalry.png"></td>
+    <td>Heavy cavalry with spears<div><em>With lances lowered and locked, these cavalrymen charge into battle for their emperor and the realm.</em></div></td>
     <td>9</td>
     <td>6</td>
     <td>3</td>
@@ -251,7 +266,8 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem('Heavy Cavalry', '33', 'cavalry', 'HeavyCav')">Add</button></td>
   </tr>
   <tr class="upgrade">
-    <td>Extra to give them spears and bows</td>
+      <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/ep_unit_water_heavy_mounted_archers.png"></td>
+    <td>Extra to give them spears and bows<div><em>These archers excel at harassing enemy troops, but are unafraid of charging into the melee if needed.</em></div></td>
     <td>9</td>
     <td>6</td>
     <td>3</td>
@@ -264,6 +280,7 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem('-Heavy Cavalry bow upgrade', '2', 'upgrade', 'heavyCavBowmen' )">Add</button></td>
   </tr>
   <tr class="upgrade">
+      <td></td>
     <td>Extra to make heavy cav elite</td>
     <td>-</td>
     <td>-</td>
@@ -277,6 +294,7 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem('-Heavy Cavalry elite upgrade', '3', 'upgrade', 'heavyCavElite' )">Add</button></td>
   </tr>
   <tr class="upgrade">
+      <td></td>
     <td>Extra to make heavy cav drilled</td>
     <td>-</td>
     <td>-</td>
@@ -290,7 +308,8 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem('-Heavy Cavalry drilled upgrade', '3', 'upgrade', 'heavyCavDrilled' )">Add</button></td>
   </tr> 
   <tr class="default">
-    <td>Medium cavalry with spears</td>
+      <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/3k_dlc07_unit_fire_northern_lancer_cavalry.png"></td>
+    <td>Medium cavalry with spears<div><em>If the initial charge does not break the foe, the follow-up soon will.</em></div></td>
     <td>8</td>
     <td>5</td>
     <td>3</td>
@@ -303,7 +322,8 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem('Medium cavalry', '27', 'cavalry', 'medCav')">Add</button></td>
   </tr>
   <tr class="upgrade">
-    <td>Extra to give medium cavalry spears and bows</td>
+      <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/3k_main_unit_water_mounted_archers.png"></td>
+    <td>Extra to give medium cavalry spears and bows<div><em>Armoured cavalry archers who harass the enemy with arrows while using their mounts to remain out of reach.</em></div></td>
     <td>8</td>
     <td>5</td>
     <td>3</td>
@@ -316,7 +336,8 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem('-bows medium cavalry upgrade', '2', 'upgrade', 'medCavBowmen')">Add</button></td>
   </tr>
   <tr class="upgrade">
-    <td>Reduction to make medium cavalry levy</td>
+      <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/3k_main_unit_fire_peasant_raiders.png"></td>
+    <td>Reduction to make medium cavalry levy<div><em>Seizing their only chance for glory, these mounted peasants charge headlong into foes and chase down fleeing enemies.</em></div></td>
     <td>8</td>
     <td>5</td>
     <td>3</td>
@@ -329,7 +350,8 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem('-levy medium cavalry downgrade', '-2', 'upgrade', 'medCavLevy')">Add</button></td>
   </tr>
   <tr class="default">
-    <td>Light cavalry armed with javelins and fielded as small units</td>
+      <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/3k_main_unit_earth_mounted_sabre_militia.png"></td>
+    <td>Light cavalry armed with javelins and fielded as small units<div><em>Complete victory only comes from ruthless determination, usually found at the end of a blade.</em></div></td>
     <td>5</td>
     <td>3</td>
     <td>2</td>
@@ -342,7 +364,8 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem('Light cavalry', '17', 'cavalry', 'lightCav')">Add</button></td>
   </tr>
   <tr class="default">
-    <td>Light cavalry armed with javelins and bows and fielded as small units</td>
+      <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/3k_dlc07_unit_water_northern_mounted_archers.png"></td>
+    <td>Light cavalry armed with javelins and bows and fielded as small units<div><em>Ride. Fire. Feign retreat. Repeat.</em></div></td>
     <td>5</td>
     <td>3</td>
     <td>2</td>
@@ -355,7 +378,8 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem('Light cavalry bowmen', '21', 'cavalry', 'lightCavBowmen')">Add</button></td>
   </tr>
   <tr class="default">
-    <td>Light Artillery bolt or stone thrower</td>
+      <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/3k_dlc04_unit_water_multiple_bolt_crossbow_bastion.png"></td>
+    <td>Light Artillery bolt or stone thrower<div><em>Be they man or monster, no one can withstand the thundering force of not one, but many, ten-foot bolts.</em></div></td>
     <td>1</td>
     <td>1</td>
     <td>2</td>
@@ -368,7 +392,8 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem('Light artillery', '15', 'artillery', 'lightArty')">Add</button></td>
   </tr>
   <tr class="default">
-    <td>Medium Artillery stone thrower</td>
+      <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/3k_main_unit_water_trebuchet_bastion.png"></td>
+    <td>Medium Artillery stone thrower<div><em>Hurling large, heavy projectiles to breach enemy defences from afar requires quite a feat of engineering.</em></div></td>
     <td>1</td>
     <td>1</td>
     <td>0</td>
@@ -381,7 +406,8 @@ and open the template in the editor.
     <td><button type="button" onclick="addItem('Medium artillery', '23', 'artillery', 'medArty')">Add</button></td>
   </tr>
   <tr class="default">
-    <td>Heavy Artillery stone thrower</td>
+      <td><img src="https://www.honga.net/totalwar/three_kingdoms/gen_images/unit_icon/three_kingdoms/3k_main_faction_cao_cao/3k_main_unit_water_trebuchet_bastion.png"></td>
+    <td>Heavy Artillery stone thrower<div><em>Enemies deserve the gift of large missiles crashing down on them!</em></div></td>
     <td>1</td>
     <td>1</td>
     <td>0</td>
