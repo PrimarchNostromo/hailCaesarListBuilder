@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Hoplite Greek</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="listBuilderScript.js"></script>
+    </head>
+    <body>
+<h1>Hoplite Greek</h1>
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.realmofhistory.com%2Fwp-content%2Fuploads%2F2016%2F01%2F10_Facts_Greek_Hoplites_6.jpg&f=1&nofb=1" 
+     alt="republicanRomans" width="600" height="450">
+<p>These are the rules for making a Republican Roman army<p>
+<table class="default">
+
+    <tr>
+        <td>Infantry 75%</td><!-- comment -->
+        <td>At least 3/4 of the units must be non-skirmishing infantry</td>
+    </tr>
+    <tr>
+        <td>Hoplites 75% of infantry</td><!-- comment -->
+        <td>At least three quarters of the non-skirmisher infantry units in the army must comprise hoplites of one kind or another</td>
+    </tr>
+        <tr>
+        <td>Spartans up to 50% of hoplites</td><!-- comment -->
+        <td>Up to half of hoplite units can be spartans</td>
+    </tr>
+    <tr>
+        <td>Cavalry up to 10%</td><!-- comment -->
+        <td>Up to 1/10 of the units in the army can be cavalry</td>
+    </tr>
+    <tr>
+        <td>Divisions 4+ units unless cavalry</td><!-- comment -->
+        <td>Divisions must contain at least 4 units (except cavalry divisions) and must be led by a commander.
+        A division containing entirely of cavalry can be any size so long as it includes all the calvary in the army.</td>
+    </tr>
+    <tr >
+        <td>Skirmishers per division 25% of infantry</td><!-- comment -->
+        <td>Divisions may contain up to one quarter as many skirmisher units as they contain non-skirmisher infantry</td>
+    </tr>
+</table>
+
+<p>Units will be added to the following division:</p><!-- this dropdown is used to select which division the troops go into -->
+           <form>
+             <select name = "dropdown" id="dropdown">
+                <option value = "Division1" selected>Division 1</option>
+                <option value = "Division2">Division 2</option>
+                <option value = "Division3">Division 3</option>
+             </select>
+           </form>
+           
+<p>Select a unit to add to your army</p>
+<p>Entries in the table will be either <span class = "default"> units </span> or <span class = "upgrade"> unit upgrades</span></p>
+<table><!--For the 'add' buttons, you need the following info for the script to work properly:
+        name of the unit to add, 
+        how many points they cost, 
+        what kind of unit they are, 
+        and which row they are in-->
+  <tr>
+      <th></th>
+    <th>Unit</th>
+    <th>Clash</th>
+    <th>Sustain</th>
+    <th>Short</th>
+    <th>Long</th>
+    <th>Morale</th>
+    <th>Stamina</th>
+    <th>Special</th>
+    <th>Points Value</th>
+    <th>Times Purchased</th>
+    <th>Add to army</th>
+  </tr>
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_sparta/Gre_Heroes_Sparta.png"></td>
+    <td>Spartan heavy infantry hoplites armed with long spears<div><em>Sparta's finest and strongest men, and the toughest of hoplites.</em></div></td>
+    <td>7</td>
+    <td>7</td>
+    <td>3/0</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td>Drilled, Stubborn, Elite, Phalanx</td>
+    <td>41 per unit</td>
+    <td id="spartans">0</td>
+    <td><button type="button" onclick="addItem('Spartans', '41', 'infantry', 'spartans')">Add</button></td>
+  </tr>
+
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_sparta/Gre_Spartan_Hoplites.png"></td>
+    <td>Elite hoplite heavy infantry armed with long spears
+        <div><em>These men know nothing but war, and are rightly feared by all.</em></div></td>
+    <td>7</td>
+    <td>7</td>
+    <td>3/0</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td>Elite, Phalanx</td>
+    <td>35 per unit</td>
+    <td id="principes">0</td>
+    <td><button type="button" onclick="addItem('Elite Hoplites', '35', 'infantry', 'principes')">Add</button></td>
+  </tr>
+
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_sparta/Gre_Royal_Spartans.png"></td>
+    <td>Hoplite heavy infantry armed with long spears
+        <div><em>The phalanx is only as strong as the shield-arms of its warriors.</em></div></td>
+    <td>7</td>
+    <td>7</td>
+    <td>3/0</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td>Phalanx</td>
+    <td>28 per unit</td>
+    <td id="triarii">0</td>
+    <td><button type="button" onclick="addItem('Hoplite Heavy Infantry', '28', 'infantry', 'triarii')">Add</button></td>
+  </tr>
+  
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_sparta/Gre_Spartan_Youths.png"></td>
+    <td>Levy hoplite heavy infantry armed with long spears
+        <div><em>Any honest citizen can take up the shield and answer to the name of "hoplite".</em></div></td>
+    <td>7</td>
+    <td>7</td>
+    <td>3/0</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td>Levy, Phalanx</td>
+    <td>28 per unit</td>
+    <td id="levyHoplite">0</td>
+    <td><button type="button" onclick="addItem('Levy Hoplites', '28', 'infantry', 'levyHoplite')">Add</button></td>
+  </tr>
+  
+
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_sparta/Gre_Periokoi_Peltasts.png"></td>
+      <td>Light infantry peltasts with spears/javelins
+          <div><em>Peltasts are skilled in the art of making enemy lives miserable and short.</em></div></td>
+    <td>5</td>
+    <td>5</td>
+    <td>3</td>
+    <td>0</td>
+    <td>6+</td>
+    <td>6</td>
+    <td> </td>
+    <td>20 per unit</td>
+    <td id="Velites">0</td>
+    <td><button type="button" onclick="addItem('Peltasts', '20', 'infantry', 'Velites')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+      <td></td>
+    <td>Reduction to field light infantry peltasts as small units</td>
+    <td>3</td>
+    <td>3</td>
+    <td>2</td>
+    <td>0</td>
+    <td>6+</td>
+    <td>4</td>
+    <td></td>
+    <td>-7 per unit</td>
+    <td id="toughFighterVelites">0</td>
+    <td><button type="button" onclick="addItem(' -Small peltasts', '-7', 'upgrade', 'toughFighterVelites')">Add</button></td>
+  </tr>
+  
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_sparta/Gre_Helot_Javelinmen.png"></td>
+      <td>Skirmishers armed with javelins and fielded as small units <div><em>Lightly-armed javelinmen, intended to harass and disrupt the enemy battle line.</em></div></td>
+    <td>3</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>4</td>
+    <td> </td>
+    <td>11 per unit</td>
+    <td id="Skirmishers">0</td>
+    <td><button type="button" onclick="addItem('Skirmishers', '11', 'skirmisher', 'Skirmishers' )">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_sparta/Gre_Helot_Slingers.png"></td>
+      <td>Give skirmishers slings instead of javelins (up to half the skirmisher units)<div><em>Witty slingers often scratch "OUCH!" onto their shot</em></div></td>
+    <td>2</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>4</td>
+    <td> </td>
+    <td>+1 per unit</td>
+    <td id="SkirmishersSlings">0</td>
+    <td><button type="button" onclick="addItem(' -Slings upgrade', '1', 'upgrade', 'SkirmishersSlings')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_sparta/Gre_Gorgos_Skirmishers.png"></td>
+    <td>Upgrade slingers to Rhodians<div><em>Few can match the deadly accuracy of the men of Rhodes.</em></div></td>
+    <td>2</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>4</td>
+    <td>Marksmen</td>
+    <td>+1 per unit</td>
+    <td id="slingerMarksmen">0</td>
+    <td><button type="button" onclick="addItem(' -Baleric Slingers', '1', 'upgrade', 'slingerMarksmen')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_sparta/Gre_Helot_Archers.png"></td>
+    <td>Give skirmishers bows instead of javelins<div><em>Archers are ideal for goading the enemy into foolish action.</em></div></td>
+    <td>2</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>4</td>
+    <td> </td>
+    <td>+1 per unit</td>
+    <td id="bowmenUpgrade">0</td>
+    <td><button type="button" onclick="addItem(' -Bowmen upgrade', '1', 'upgrade', 'bowmenUpgrade')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2//inv_mercenary_cretan_archers.png"></td>
+    <td>Upgrade bowmen to Cretans<div><em>Give a Cretan a bow, and he is worth his weight in silver.</em></div></td>
+    <td>2</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>4</td>
+    <td>Marksmen</td>
+    <td>+1 per unit</td>
+    <td id="bowmenMarksmen">0</td>
+    <td><button type="button" onclick="addItem(' -Creten bowmen', '1', 'upgrade', 'bowmenMarksmen')">Add</button></td>
+  </tr>
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_sparta/Gre_Citizen_Cav.png"></td>
+      <td>Medium cavalry fielded as small units
+          <div><em>Wealthy horse-owners have the same rights as the lesser men of the phalanx.</em></div></td>
+    <td>6</td>
+    <td>3</td>
+    <td>2</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>4</td>
+    <td> </td>
+    <td>19 per unit</td>
+    <td id="mediumCav">0</td>
+    <td><button type="button" onclick="addItem('Medium cavalry', '19', 'cavalry', 'mediumCav')">Add</button></td>
+  </tr>
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_sparta/Gre_Skirm_Cav.png"></td>
+    <td>Light cavalry armed with javelins and fielded as small units
+    <div><em>These speedy, light cavalrymen can do good service in harrying the enemy.</em></div></td>
+    <td>5</td>
+    <td>3</td>
+    <td>2</td>
+    <td>0</td>
+    <td>6+</td>
+    <td>4</td>
+    <td> </td>
+    <td>17 per unit</td>
+    <td id="lightCav">0</td>
+    <td><button type="button" onclick="addItem('Light cavalry', '17', 'cavalry', 'lightCav')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2//inv_syr_mer_thessalian_cavalry.png"></td>
+    <td>Upgrade light cavalry to Thessalians - up to 1 unit
+        <div><em>Superb horsemen who can smash through most opposition on their first charge.</em></div></td>
+    <td>5</td>
+    <td>3</td>
+    <td>2</td>
+    <td>0</td>
+    <td>6+</td>
+    <td>4</td>
+    <td>Feigned Flight</td>
+    <td>+2 per unit</td>
+    <td id="NumidianCavalryUpgrade">0</td>
+    <td><button type="button" onclick="addItem('Thessalians cavalry upgrade', '2', 'upgrade', 'NumidianCavalryUpgrade')">Add</button></td>
+  </tr>
+
+
+</table><!-- comment -->
+<br>
+<table>
+  <tr class="default">
+      <td>Commander
+      <div><em>Command must be exercised in person to be effective.</em></div></td><!-- comment -->
+      <td>1 commander must be provided per division. </td>
+      <td>All commanders including general have leadership 8.</td><!-- comment -->
+      <td><button type="button" onclick="addItem('Commander', '0')">Add</button></td>
+  </tr>
+   <tr class="upgrade">
+      <td>Upgrade division commander to General
+          <div><em>Romans should be led from the front.</em></div></td><!-- comment -->
+      <td>1 commander must be provided per division. </td>
+      <td>Your army must have one General</td><!-- comment -->
+      <td><button type="button" onclick="addItem('General upgrade', '0')">Add</button></td>
+  </tr>
+   <tr class="upgrade">
+       <td>Upgrade commander to leadership 9<div><em>"Come back with this shield, or on it..."</em></div></td><!-- comment -->
+      <td>If the army includes its maximum quota of Spartan hoplites a Spartan general can lead it. 
+          A spartan general has leadership 9 and can add up to a maximum of 6 attacks in hand-to-hand combat rather than the usual 3. </td>
+      <td>+25 points.</td><!-- comment -->
+      <td><button type="button" onclick="addItem('Leadership upgrade', '25')">Add</button></td>
+  </tr>
+</table>   
+<br>
+           <h2 id= "unitBox">Army list</h2>
+           <h4>Division 1</h4>
+           <div id= "Division1"></div>
+           <br>
+           <h4>Division 2</h4>
+           <div id= "Division2"></div>
+           <br>
+           <h4>Division 3</h4>
+           <div id= "Division3"></div>
+           <br>
+           <h4>Points total:</h4>
+           <div id= "pointsTotal">0</div>
+           <br>
+           <!<!-- unit type totals -->
+           <span>Melee Infantry:</span>
+           <span id="infantry">0</span>
+           <br>
+
+           <span>Skirmishers</span>
+           <span id="skirmisher">0</span>
+           <br>
+           <span>Cavalry</span>
+           <span id="cavalry">0</span>
+           <br>
+           <h5> Remember to follow your army list rules! </h5>
+    </body>
+</html>
