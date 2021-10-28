@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Gauls</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="listBuilderScript.js"></script>
+    </head>
+    <body>
+<h1>Gallic List Builder</h1>
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F83%2Fbb%2Fde%2F83bbdef2933e5c19e7853598e294d6c7.jpg&f=1&nofb=1" 
+     alt="carthaginianArmy" width="600" height="400">
+<p>These are the rules for making a Gallic army<p>
+<table>
+
+    <tr class="default">
+        <td>Infantry 75%</td><!-- comment -->
+        <td>At least 3/4 of the units must be non-skirmishing infantry</td>
+    </tr>
+    <tr class="default">
+        <td>Warbands 50% of infantry</td><!-- comment -->
+        <td>At least half the non-skirmisher infantry units in the army must be medium infantry warbands of one kind or other.</td>
+    </tr>
+    <tr class="default">
+        <td>Cavalry up to 25%</td><!-- comment -->
+        <td>Up to 1/4 of the units in the army can be cavalry</td>
+    </tr>
+    <tr class="default">
+        <td>Chariots up to 10% if no medium cavalry</td><!-- comment -->
+        <td>Up to one in ten of the army can be chariots so long as the army contains no medium cavalry</td>
+    </tr>
+    <tr class="default">
+        <td>Divisions 4+ units</td><!-- comment -->
+        <td>Divisions must contain at least 4 units excluding skirmishers and must be led by a commander.
+        If general's guard is fielded these must form part of the general's division. 
+        If German allies are included they must form a division together with any skirmishers as noted below</td>
+    </tr>
+    <tr class="default">
+        <td>Skirmishers per division 50% of infantry</td><!-- comment -->
+        <td>Divisions may contain up to half as many skirmisher units as they contain non-skirmisher infantry</td>
+    </tr>
+</table>
+
+<p>Units will be added to the following division:</p><!-- this dropdown is used to select which division the troops go into -->
+           <form>
+             <select name = "dropdown" id="dropdown">
+                <option value = "Division1" selected>Division 1</option>
+                <option value = "Division2">Division 2</option>
+                <option value = "Division3">Division 3</option>
+             </select>
+           </form>
+           
+<p>Select a unit to add to your army</p>
+<p>Entries in the table will be either <span class = "default"> units </span> or <span class = "upgrade"> unit upgrades</span></p>
+<table><!--For the 'add' buttons, you need the following info for the script to work properly:
+        name of the unit to add, 
+        how many points they cost, 
+        what kind of unit they are, 
+        and which row they are in-->
+  <tr class="default">
+      <th></th>
+    <th>Unit</th>
+    <th>Clash</th>
+    <th>Sustain</th>
+    <th>Short</th>
+    <th>Long</th>
+    <th>Morale</th>
+    <th>Stamina</th>
+    <th>Special</th>
+    <th>Points Value</th>
+    <th>Times Purchased</th>
+    <th>Add to army</th>
+  </tr>
+
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_boii/Cel_Warriors.png"></td>
+    <td>Medium infantry warband armed with swords and javelins<div><em>There is a deep savagery in these warrior's hearts; a delight in battle for its own sake.</em></div></td>
+    <td>9</td>
+    <td>6</td>
+    <td>2</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Wild Fighters</td>
+    <td>28 per unit</td>
+    <td id="gallicWarband">0</td>
+    <td><button type="button" onclick="addItem('Gallic infantry Warband', '28', 'infantry', 'gallicWarband')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+      <td></td>
+    <td>Extra to field as a large unit</td>
+    <td>11</td>
+    <td>8</td>
+    <td>3</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>8</td>
+    <td>Wild Fighters</td>
+    <td>+7 per unit</td>
+    <td id="largeWarband">0</td>
+    <td><button type="button" onclick="addItem(' -Warband Large Upgrade', '7', 'upgrade', 'largeWarband' )">Add</button></td>
+  </tr>
+    <tr class="upgrade">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_boii/Cel_Sword_Followers.png"></td>
+    <td>Extra to field standard-sized warbands as Belgae<div><em>Where a lord commands, the sword is thrust.</em></div></td>
+    <td>9</td>
+    <td>6</td>
+    <td>2</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Wild Fighters, Eager</td>
+    <td>0 per unit</td>
+    <td id="belgaeUpgrade">0</td>
+    <td><button type="button" onclick="addItem(' -Warband Belgae Upgrade', '0', 'upgrade', 'belgaeUpgrade' )">Add</button></td>
+  </tr>
+    <tr class="upgrade">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_aestii/Cel_Chosen_Sword.png"></td>
+    <td>Extra to field standard-sized warbands as German allies -- up to 4 units<div><em>These men fight with proven bravery and well-honed skill-at-arms.</em></div></td>
+    <td>9</td>
+    <td>6</td>
+    <td>2</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Wild Fighters, Brave</td>
+    <td>+3 per unit</td>
+    <td id="germanUpgrade">0</td>
+    <td><button type="button" onclick="addItem(' -Warband German Upgrade', '3', 'upgrade', 'germanUpgrade' )">Add</button></td>
+  </tr>
+    <tr class="upgrade">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_boii/Cel_Veteran_Spears.png"></td>
+      <td>Extra to field a standard-sized warband as Gaesatae -- up to 1 unit<div><em>Battle hardens the sinews and the heart, and deafens the ear to the cries of cowards.</em></div></td>
+    <td>9</td>
+    <td>6</td>
+    <td>2</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Wild Fighters, Brave</td>
+    <td>+4 per unit</td>
+    <td id="GaesataeUpgrade">0</td>
+    <td><button type="button" onclick="addItem(' -Warband Gaesatae Upgrade', '4', 'upgrade', 'GaesataeUpgrade' )">Add</button></td>
+  </tr>
+  
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_boii/Cel_Oathsworn.png"></td>
+    <td>General's guard medium infantry warband -- up to 1 unit<div><em>Great and terrible oaths should be kept, in blood and by the sword.</em></div></td>
+    <td>9</td>
+    <td>6</td>
+    <td>2</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Tough Fighters, Stubborn, Valient</td>
+    <td>31 per unit</td>
+    <td id="generalsGuard">0</td>
+    <td><button type="button" onclick="addItem('Generals guard infantry Warband', '31', 'infantry', 'generalsGuard')">Add</button></td>
+  </tr>
+
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_artebartes/Cel_Skirm.png"></td>
+    <td>Skirmishers armed with javelins and fielded as small units<div><em>Even the poorest of the tribe can fight for its honour and glory.</em></div></td>
+    <td>3</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>4</td>
+    <td> </td>
+    <td>11 per unit</td>
+    <td id="skirmishers">0</td>
+    <td><button type="button" onclick="addItem('Skirmishers', '11', 'skirmisher', 'skirmishers')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_artebartes/Cel_Gallic_Hunters.png"></td>
+    <td>Give skirmishers slings or bows instead of javelins (up to half the skirmisher units)<div><em>The skills of the hunt - hiding and a sudden strike - are the skills of a warrior.</em></div></td>
+    <td>2</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>4</td>
+    <td> </td>
+    <td>+1 per unit</td>
+    <td id="skirmisherSlings">0</td>
+    <td><button type="button" onclick="addItem(' -Slings upgrade', '1', 'upgrade', 'skirmisherSlings' )">Add</button></td>
+  </tr>
+
+
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_artebartes/Cel_Noble_Horse.png"></td>
+    <td>Medium cavalry armed with spears/javelins<div><em>A strong mount and a savage swing make these warriors a fearsome prospect.</em></div></td>
+    <td>8</td>
+    <td>5</td>
+    <td>3</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td> </td>
+    <td>27 per unit</td>
+    <td id="alliedMedCav">0</td>
+    <td><button type="button" onclick="addItem('Allied Medium cavalry', '27', 'cavalry', 'alliedMedCav')">Add</button></td>
+  </tr>
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_artebartes/Cel_Light_Horse.png"></td>
+    <td>Light cavalry armed with javelins and fielded as small units<div><em>The capable mounted skirmishers are a useful force for keeping an enemy at bay.</em></div></td>
+    <td>5</td>
+    <td>3</td>
+    <td>2</td>
+    <td>0</td>
+    <td>6+</td>
+    <td>4</td>
+    <td> </td>
+    <td>17 per unit</td>
+    <td id="lightCav">0</td>
+    <td><button type="button" onclick="addItem('Light cavalry', '17', 'cavalry', 'lightCav')">Add</button></td>
+  </tr>
+
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_iceni/Bri_Chariots.png"></td>
+    <td>Gallic light chariots<div><em>War chariots, used with skill, can break ordered ranks of infantry.</em></div></td>
+    <td>6</td>
+    <td>5</td>
+    <td>4</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td> </td>
+    <td>27 per unit</td>
+    <td id="lightChariot">0</td>
+    <td><button type="button" onclick="addItem('Light chariot', '27', 'upgrade', 'lightChariot')">Add</button></td>
+  </tr>
+
+
+</table><!-- comment -->
+<br>
+<table>
+  <tr class="default">
+      <td>Commander</td><!-- comment -->
+      <td>1 commander must be provided per division. </td>
+      <td>All commanders including general have leadership 8.</td><!-- comment -->
+      <td><button type="button" onclick="addItem('Commander', '0')">Add</button></td>
+  </tr>
+   <tr class="upgrade">
+      <td>Upgrade division commander to General</td><!-- comment -->
+      <td>Your army must have one General </td>
+      <td>All commanders including general have leadership 8.</td><!-- comment -->
+      <td><button type="button" onclick="addItem('General upgrade', '0')">Add</button></td>
+  </tr>
+</table>   
+<br>
+           <h2 id= "unitBox">Army list</h2>
+           <h4>Division 1</h4>
+           <div id= "Division1"></div>
+           <br>
+           <h4>Division 2</h4>
+           <div id= "Division2"></div>
+           <br>
+           <h4>Division 3</h4>
+           <div id= "Division3"></div>
+           <br>
+           <h4>Points total:</h4>
+           <div id= "pointsTotal">0</div>
+           <br>
+           <!<!-- unit type totals -->
+           <span>Melee Infantry:</span>
+           <span id="infantry">0</span>
+           <br>
+
+           <span>Skirmishers</span>
+           <span id="skirmisher">0</span>
+           <br>
+           <span>Cavalry</span>
+           <span id="cavalry">0</span>
+           <br>
+           <span>Elephant</span>
+           <span id="elephant">0</span>
+           <br>
+           <h5> Remember to follow your army list rules! </h5>
+    </body>
+</html>
