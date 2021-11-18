@@ -6,7 +6,28 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="listBuilderScript.js"></script>
+		<!--The 2 script is the script I wrote for doing all the basic listbuildng functions
+		The 1 script is a library for screenshotting an section of the screen-->
+            <script src="html2canvas.js"></script>
+    <script type="text/javascript">
+
+        function downloadimage() {
+            var container = document.getElementById("htmltoimage"); //specific element on page
+            //var container = document.getElementById("htmltoimage");; // full page 
+            html2canvas(container, { allowTaint: true }).then(function (canvas) {
+
+                var link = document.createElement("a");
+                document.body.appendChild(link);
+                link.download = "list_builder.jpg";
+                link.href = canvas.toDataURL();
+                link.target = '_blank';
+                link.click();
+            });
+        }
+
+    </script>
+		<script src="listBuilderScript.js"></script> 
+		
     </head>
     <body>
 <h1>Early Imperial Roman List Builder</h1>
@@ -436,8 +457,8 @@
     <td>3</td>
     <td>Drilled</td>
     <td>+3 per unit</td>
-    <td id="lightArty">0</td>
-    <td><button type="button" onclick="addItem('Light artillery', '3', 'artillery', 'lightArty')">Add</button></td>
+    <td id="lightArtyCarroballistae">0</td>
+    <td><button type="button" onclick="addItem('Light artillery', '3', 'upgrade', 'lightArtyCarroballistae')">Add</button></td>
   </tr>
   <tr class="default">
       <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Rom_Large_Onager.png"></td>
@@ -492,6 +513,7 @@
   </tr>
 </table>   
 <br>
+<span id="htmltoimage">
            <h2 id= "unitBox">Army list</h2>
            <h4>Division 1</h4>
            <div id= "Division1"></div>
@@ -505,6 +527,7 @@
            <h4>Points total:</h4>
            <div id= "pointsTotal">0</div>
            <br>
+		   </span>	 
            <!<!-- unit type totals -->
            <span>Melee Infantry:</span>
            <span id="infantry">0</span>
@@ -522,6 +545,9 @@
            <span>Artillery:</span>
            <span id="artillery">0</span>
            <br>
+		   <button onclick="downloadimage()" class="clickbtn">Click To Download your list as an img</button>
+		   <br>
            <h5> Remember to follow your army list rules! </h5>
+	  
     </body>
 </html>
