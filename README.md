@@ -4,6 +4,7 @@ A list builder for the Hail Caesar miniature wargame
 
 USAGE: Download all of the files into the same folder/directory. Double click index.html to get to the main page (make sure everything is not inside a zip'd folder otherwise it might not work right)
 
+html2canvas was obtained from here: https://github.com/niklasvh/html2canvas , and is licensed under the MIT license.
 
 List builder application Created by Joshua Geyer
 
