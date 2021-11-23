@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Mycenaean Trojans</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        		<!--The 3 script is the script I wrote for doing all the basic listbuildng functions
+		The 1 script is a library for screenshotting an section of the screen
+		And the 2nd (internal) script is just using hte library on this page itself-->
+            <script src="html2canvas.js"></script>
+    <script type="text/javascript">
+
+        function downloadimage() {
+            var container = document.getElementById("htmltoimage"); //specific element on page
+            //var container = document.getElementById("htmltoimage");; // full page 
+            html2canvas(container, { allowTaint: true }).then(function (canvas) {
+
+                var link = document.createElement("a");
+                document.body.appendChild(link);
+                link.download = "list_builder.jpg";
+                link.href = canvas.toDataURL();
+                link.target = '_blank';
+                link.click();
+            });
+        }
+    </script>
+		<script src="listBuilderScript.js"></script> 
+    </head>
+    <body>
+<h1>Mycenaean Trojans</h1>
+<img src="http://4.bp.blogspot.com/-Qzlc4UIAWC8/TiE6SGVhilI/AAAAAAAAACA/f5YssWMWu4s/s1600/hectior.jpg" 
+     alt="trojans" width="600" height="450">
+<p>These are the rules for making a Mycenaean Trojan army<p>
+<table class="default">
+
+    <tr>
+        <td>Infantry 75%</td><!-- comment -->
+        <td>At least 3/4 of the units must be non-skirmishing infantry</td>
+    </tr>
+    <tr>
+        <td>Medium infantry 25% of infantry</td><!-- comment -->
+        <td>At least 1/4 of the non-skirmisher infantry units in the army must be Trojan medium infantry units of one kind or another</td>
+    </tr>
+    <tr>
+        <td>Chariots up to 25%</td><!-- comment -->
+        <td>Up to 1/4 of the units in the army can be chariots</td>
+    </tr>
+    <tr>
+        <td>Divisions 4+ units unless cavalry</td><!-- comment -->
+        <td>Divisions must contain at least 4 units and must be led by a commander..</td>
+    </tr>
+    <tr >
+        <td>Skirmishers per division 50% of infantry</td><!-- comment -->
+        <td>Divisions may contain up to one half as many skirmisher units as they contain non-skirmisher infantry</td>
+    </tr>
+</table>
+
+<p>Units will be added to the following division:</p><!-- this dropdown is used to select which division the troops go into -->
+           <form>
+             <select name = "dropdown" id="dropdown">
+                <option value = "Division1" selected>Division 1</option>
+                <option value = "Division2">Division 2</option>
+                <option value = "Division3">Division 3</option>
+             </select>
+           </form>
+           
+<p>Select a unit to add to your army</p>
+<p>Entries in the table will be either <span class = "default"> units </span> or <span class = "upgrade"> unit upgrades</span></p>
+<table><!--For the 'add' buttons, you need the following info for the script to work properly:
+        name of the unit to add, 
+        how many points they cost, 
+        what kind of unit they are, 
+        and which row they are in-->
+  <tr>
+      <th></th>
+    <th>Unit</th>
+    <th>Clash</th>
+    <th>Sustain</th>
+    <th>Short</th>
+    <th>Long</th>
+    <th>Morale</th>
+    <th>Stamina</th>
+    <th>Special</th>
+    <th>Points Value</th>
+    <th>Times Purchased</th>
+    <th>Add to army</th>
+  </tr>
+  <tr class="default">
+      <td><img src="https://static.wikia.nocookie.net/totalwar/images/5/56/TROY_unit_heavy_trojan_spearmen.png/revision/latest/scale-to-width-down/156?cb=20210226151828" width="64" height="128"></td>
+    <td>Trojan Spearmen medium infantry with long spears<div><em>A battle line of spearmen can be a very comforting use of funds.</em></div></td>
+    <td>6</td>
+    <td>6</td>
+    <td>3/0</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td></td>
+    <td>26 per unit</td>
+    <td id="mediumLongSpears">0</td>
+    <td><button type="button" onclick="addItem('Medium Melee Infantry', '26', 'infantry', 'mediumLongSpears')">Add</button></td>
+  </tr>
+
+  <tr class="default">
+      <td><img src="https://static.wikia.nocookie.net/totalwar/images/b/b6/TROY_unit_trojan_nobles.png/revision/latest/scale-to-width-down/156?cb=20210226151942" width="64" height="128"></td>
+    <td>Trojan Nobles medium infantry with mixed long spears and bows
+        <div><em>Good archers will prove their worth many times over, even in a single battle.</em></div></td>
+    <td>6</td>
+    <td>6</td>
+    <td>3</td>
+    <td>1</td>
+    <td>5+</td>
+    <td>6</td>
+    <td></td>
+    <td>27 per unit</td>
+    <td id="mediumBowmen">0</td>
+    <td><button type="button" onclick="addItem('Medium infantry bowmen', '27', 'infantry', 'mediumBowmen')">Add</button></td>
+  </tr>
+
+  <tr class="default">
+      <td><img src="https://static.wikia.nocookie.net/totalwar/images/c/c5/TROY_unit_heavy_javelin_throwers.png/revision/latest/scale-to-width-down/156?cb=20210226151820" width="64" height="128"></td>
+    <td>Trojan Javelinmen medium infantry with javelins and shields
+        <div><em>Many underestimate the javelin right up until it thuds into their sternum.</em></div></td>
+    <td>6</td>
+    <td>6</td>
+    <td>3</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td></td>
+    <td>23 per unit</td>
+    <td id="mediumJavelins">0</td>
+    <td><button type="button" onclick="addItem('Medium infantry javelinmen', '23', 'infantry', 'mediumJavelins')">Add</button></td>
+  </tr>
+  
+  <tr class="default">
+      <td><img src="https://static.wikia.nocookie.net/totalwar/images/d/da/TROY_unit_axe_champions.png/revision/latest/scale-to-width-down/156?cb=20201006122821" width="64" height="128"></td>
+    <td>Hector's Chosen medium infantry with double-handed axes - up to 1 unit
+        <div><em>Only the very best may serve in the king's bodyguards.</em></div></td>
+    <td>7</td>
+    <td>6</td>
+    <td>0/2</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Tough Fighters</td>
+    <td>25 per unit</td>
+    <td id="royalGuard">0</td>
+    <td><button type="button" onclick="addItem('Royal Guard', '25', 'infantry', 'royalGuard')">Add</button></td>
+  </tr>
+  
+
+  <tr class="default">
+      <td><img src="https://static.wikia.nocookie.net/totalwar/images/9/9c/TROY_unit_archers.png/revision/latest/scale-to-width-down/156?cb=20201006122332" width="64" height="128"></td>
+      <td>Trojan light infantry archers fielded as small units
+          <div><em>A rain of arrows can lead the enemy into rash decisions.</em></div></td>
+    <td>3</td>
+    <td>3</td>
+    <td>2</td>
+    <td>2</td>
+    <td>6+</td>
+    <td>4</td>
+    <td> </td>
+    <td>15 per unit</td>
+    <td id="lightArchers">0</td>
+    <td><button type="button" onclick="addItem('Light Archers', '15', 'infantry', 'lightArchers')">Add</button></td>
+  </tr>
+  <tr class="default">
+      <td><img src="https://static.wikia.nocookie.net/totalwar/images/c/c0/TROY_unit_light_javelinmen.png/revision/latest/scale-to-width-down/156?cb=20210226151843" width="64" height="128"></td>
+      <td>Trojan light infantry javelinmen fielded as small units
+          <div><em>The humble javelin can puncture infantry armour and impale horsemen atop their mounts.</em></div></td>
+    <td>3</td>
+    <td>3</td>
+    <td>2</td>
+    <td>0</td>
+    <td>6+</td>
+    <td>4</td>
+    <td> </td>
+    <td>13 per unit</td>
+    <td id="lightJavs">0</td>
+    <td><button type="button" onclick="addItem('Light Javelinmen', '13', 'infantry', 'lightJavs')">Add</button></td>
+  </tr>
+    <tr class="default">
+      <td><img src="https://static.wikia.nocookie.net/totalwar/images/f/fe/TROY_unit_aeginian_javelinmen.png/revision/latest/scale-to-width-down/156?cb=20201002144801" width="64" height="128"></td>
+      <td>Chariot runners light infantry javelinmen fielded as small units
+          <div><em>Unmatched in stride and agility, these skirmishers relentlessly harass infantry from afar.</em></div></td>
+    <td>3</td>
+    <td>3</td>
+    <td>2</td>
+    <td>0</td>
+    <td>6+</td>
+    <td>4</td>
+    <td>Sub-unit with chariot</td>
+    <td>13 per unit</td>
+    <td id="chariotRunners">0</td>
+    <td><button type="button" onclick="addItem('Chariot runner Javelinmen', '13', 'infantry', 'chariotRunners')">Add</button></td>
+  </tr>
+  
+  <tr class="default">
+      <td><img src="https://static.wikia.nocookie.net/totalwar/images/e/e2/TROY_unit_light_skirmishers.png/revision/latest/scale-to-width-down/156?cb=20210226151844" width="64" height="128"></td>
+      <td>Skirmishers armed with javelins or hand-hurled stones, fielded as small units <div><em>Hurling a javelin is no easy task. Hurling it accurately, even less so.</em></div></td>
+    <td>3</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>4</td>
+    <td>Levy</td>
+    <td>9 per unit</td>
+    <td id="SkirmishersJav">0</td>
+    <td><button type="button" onclick="addItem('Javelin Skirmishers', '9', 'skirmisher', 'SkirmishersJav' )">Add</button></td>
+  </tr>
+    <tr class="default">
+      <td><img src="https://static.wikia.nocookie.net/totalwar/images/a/ac/TROY_unit_trojan_slingers.png/revision/latest/scale-to-width-down/156?cb=20210226151944" width="64" height="128"></td>
+      <td>Skirmishers armed with slings fielded as small units <div><em>Witty slingers often scratch "OUCH!" onto their shot.</em></div></td>
+    <td>3</td>
+    <td>2</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>4</td>
+    <td>Levy</td>
+    <td>10 per unit</td>
+    <td id="SkirmishersSling">0</td>
+    <td><button type="button" onclick="addItem('Sling Skirmishers', '10', 'skirmisher', 'SkirmishersSling' )">Add</button></td>
+  </tr>
+
+  <tr class="default">
+      <td><img src="https://static.wikia.nocookie.net/totalwar/images/8/8b/TROY_unit_chariots.png/revision/latest/scale-to-width-down/156?cb=20201009112246" width="64" height="128"></td>
+      <td>Light chariots with spear and javelin-armed crews
+          <div><em>To be able to rumble across a battlefield mounted atop a chariot is a clear sign of importance</em></div></td>
+    <td>8</td>
+    <td>6</td>
+    <td>2</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td> </td>
+    <td>28 per unit</td>
+    <td id="lightChariot">0</td>
+    <td><button type="button" onclick="addItem('Light Chariot', '28', 'chariot', 'lightChariot')">Add</button></td>
+  </tr>
+
+
+
+
+</table><!-- comment -->
+<br>
+<table>
+  <tr class="default">
+      <td>Commander
+      <div><em>Command must be exercised in person to be effective.</em></div></td><!-- comment -->
+      <td>1 commander must be provided per division. </td>
+      <td>All commanders including general have leadership 8.</td><!-- comment -->
+      <td><button type="button" onclick="addItem('Commander', '0')">Add</button></td>
+  </tr>
+   <tr class="upgrade">
+      <td>Upgrade division commander to General
+          </td><!-- comment -->
+      <td>1 commander must be provided per division. </td>
+      <td>Your army must have one General</td><!-- comment -->
+      <td><button type="button" onclick="addItem('General upgrade', '0')">Add</button></td>
+  </tr>
+   <tr class="upgrade">
+       <td>Upgrade commander to leadership 9<div><em>"Let me first do some great thing that shall be told among men hereafter."</em></div></td><!-- comment -->
+      <td>If the army includes its maximum quota of Hector's Chosen, Hector can lead it. 
+          Hector has leadership 9 and can add up to a maximum of 6 attacks in hand-to-hand combat rather than the usual 3. </td>
+      <td>+25 points.</td><!-- comment -->
+      <td><button type="button" onclick="addItem('Hector Upgrade', '25')">Add</button></td>
+  </tr>
+</table>   
+<br>
+<span id="htmltoimage">
+           <h2 id= "unitBox">Army list</h2>
+           <h4>Division 1</h4>
+           <div id= "Division1"></div>
+           <br>
+           <h4>Division 2</h4>
+           <div id= "Division2"></div>
+           <br>
+           <h4>Division 3</h4>
+           <div id= "Division3"></div>
+           <br>
+           <h4>Points total:</h4>
+           <div id= "pointsTotal">0</div>
+           <br>
+		   </span>
+           <!<!-- unit type totals -->
+           <span>Melee Infantry:</span>
+           <span id="infantry">0</span>
+           <br>
+           <span>Skirmishers</span>
+           <span id="skirmisher">0</span>
+           <br>
+           <span>Chariots</span>
+           <span id="chariot">0</span>
+           <br>
+		   <button onclick="downloadimage()" class="clickbtn">Click to download your list as an img</button>
+		   <br>
+           <h5> Remember to follow your army list rules! </h5>
+    </body>
+</html>
