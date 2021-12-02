@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Plantagenet English</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        		<!--The 3 script is the script I wrote for doing all the basic listbuildng functions
+		The 1 script is a library for screenshotting an section of the screen
+		And the 2nd (internal) script is just using hte library on this page itself-->
+            <script src="html2canvas.js"></script>
+    <script type="text/javascript">
+
+        function downloadimage() {
+            var container = document.getElementById("htmltoimage"); //specific element on page
+            //var container = document.getElementById("htmltoimage");; // full page 
+            html2canvas(container, { allowTaint: true }).then(function (canvas) {
+
+                var link = document.createElement("a");
+                document.body.appendChild(link);
+                link.download = "list_builder.jpg";
+                link.href = canvas.toDataURL();
+                link.target = '_blank';
+                link.click();
+            });
+        }
+    </script>
+		<script src="listBuilderScript.js"></script> 
+    </head>
+    <body>
+<h1>Plantagenet English List Builder</h1>
+<img src="https://english-heritage.shorthandstories.com/a-brief-history-of-knights/assets/imn2atfqw1/header-2560x1440.jpeg" 
+     alt="Plantagenet English" width="600" height="450">
+
+<p>These are the rules for making a Plantagenet English army:<p>
+<table>
+
+    <tr class="default">
+        <td>Infantry 25%</td><!-- comment -->
+        <td>At least 1/4 of the units must be non-skirmishing infantry</td>
+    </tr>
+    <tr class="default">
+        <td>Feudal/Mercenary non-missile infantry 25% of infantry</td><!-- comment -->
+        <td>At least a quarter of the non-skirmishing units in the army must be non-missile armed feudal heavy infantry, mercenary heavy infantry, or mercenary medium infantry</td>
+    </tr>
+    <tr class="default">
+        <td>Bows 50% of missile armed infantry if present</td><!-- comment -->
+        <td>If bow-armed medium or light infantry are included they must make up at least half of all missile-armed medium or light infantry units</td>
+    </tr>
+    <tr class="default">
+        <td>Cavalry 25%+</td><!-- comment -->
+        <td>At least 1/4 of the units in the army must be cavalry</td>
+    </tr>
+    <tr class="default">
+        <td>Knights at least 50% of calvary</td><!-- comment -->
+        <td>At least 1/2 of the cavalry must be knights</td>
+    </tr>
+    <tr class="default">
+        <td>Divisions 4+ units</td><!-- comment -->
+        <td>Divisions must contain at least 4 units excluding skirmishers and must be led by a commander.</td>
+    </tr>
+    <tr class="default">
+        <td>Skirmishers per division 25% of infantry</td><!-- comment -->
+        <td>Divisions may contain up to a quarter as many skirmisher units as they contain non-skirmisher infantry</td>
+    </tr>
+</table>
+
+<p>Units will be added to the following division:</p><!-- this dropdown is used to select which division the troops go into -->
+           <form>
+             <select name = "dropdown" id="dropdown">
+                <option value = "Division1" selected>Division 1</option>
+                <option value = "Division2">Division 2</option>
+                <option value = "Division3">Division 3</option>
+             </select>
+           </form>
+           
+<p>Select a unit to add to your army</p>
+<p>Entries in the table will be either <span class = "default"> units </span> or <span class = "upgrade"> unit upgrades</span></p>
+<table> <!--For the 'add' buttons, you need the following info for the script to work properly:
+        name of the unit to add, 
+        how many points they cost, 
+        what kind of unit they are, 
+        and which row they are in-->
+  <tr class="default">
+      <th></th>
+    <th>Unit</th>
+    <th>Clash</th>
+    <th>Sustain</th>
+    <th>Short</th>
+    <th>Long</th>
+    <th>Morale</th>
+    <th>Stamina</th>
+    <th>Special</th>
+    <th>Points Value</th>
+    <th>Times Purchased</th>
+    <th>Add to army</th>
+  </tr>
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/images/medieval2/m2tw/units/england/%23heavy_billmen.png"></td>
+    <td>Feudal heavy infantry<div><em>Trained and hardened warriors, protected by a large shield</em></div></td>
+    <td>7</td>
+    <td>7</td>
+    <td>3</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td> </td>
+    <td>26 per unit</td>
+    <td id="feudalHeabyInfantry">0</td>
+    <td><button type="button" onclick="addItem('Feudal Heavy infantry', '26', 'infantry', 'feudalHeabyInfantry')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+      <td></td>
+    <td>Extra to give them long spears</td>
+    <td>7</td>
+    <td>7</td>
+    <td>3/0</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td> </td>
+    <td>+3 per unit</td>
+    <td id="HeabyInfantryLongSpears">0</td>
+    <td><button type="button" onclick="addItem(' -Heavy Infantry Long Spear upgrade', '3', 'upgrade', 'HeabyInfantryLongSpears')">Add</button></td>
+  </tr>
+  
+  <tr class="default">
+    <td><img src="https://www.honga.net/totalwar/images/medieval2/m2tw/units/england/%23armored_swordsmen.png"></td>
+    <td>Mercenary heavy infantry<div><em>These well trained warriors are protected by plate armour</em></div></td>
+    <td>7</td>
+    <td>7</td>
+    <td>3</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td>Drilled</td>
+    <td>29 per unit</td>
+    <td id="mercHeabyInfantry">0</td>
+    <td><button type="button" onclick="addItem('Mercenary Heavy infantry', '29', 'infantry', 'mercHeabyInfantry')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+      <td></td>
+    <td>Extra to give them long spears</td>
+    <td>7</td>
+    <td>7</td>
+    <td>3/0</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td>As above</td>
+    <td>+3 per unit</td>
+    <td id="mercHeavyInfantryLongSpearUpgrade">0</td>
+    <td><button type="button" onclick="addItem(' -Mercenary Heavy Infantry Long Spear upgrade', '3', 'upgrade', 'mercHeavyInfantryLongSpearUpgrade')">Add</button></td>
+  </tr>
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/images/medieval2/m2tw/units/england/%23spear_militia.png"></td>
+    <td>Mercenary Medium infantry<div><em>With spears thrust to the fore, these iron-clad warriors target armoured enemies..</em></div></td>
+    <td>6</td>
+    <td>6</td>
+    <td>3</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Drilled</td>
+    <td>26 per unit</td>
+    <td id="mercenaryMedInfantry">0</td>
+    <td><button type="button" onclick="addItem('Mercenary Medium Infantry', '26', 'infantry', 'mercenaryMedInfantry')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+      <td></td>
+    <td>Upgrade to give them long spears</td>
+    <td>6</td>
+    <td>6</td>
+    <td>3/0</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Drilled</td>
+    <td>+3 per unit</td>
+    <td id="longSpearsUpgrade">0</td>
+    <td><button type="button" onclick="addItem('-Medium Infantry long spears upgrade', '3', 'upgrade', 'longSpearsUpgrade')">Add</button></td>
+ 
+
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/images/medieval2/m2tw/units/england/%23town_militia.png"></td>
+    <td>Town Militia medium infantry<div><em>Town Militia are commoners and peasants levied into local militias to defend settlements and bolster armies, armed with short spears.</em></div></td>
+    <td>6</td>
+    <td>5</td>
+    <td>2</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Militia</td>
+    <td>18 per unit</td>
+    <td id="feudalMediumInfantryMilitia">0</td>
+    <td><button type="button" onclick="addItem('Medium Infantry Militia', '18', 'infantry', 'feudalMediumInfantryMilitia')">Add</button></td>
+  </tr>
+    <tr class="upgrade">
+        <td></td>
+    <td>Upgrade to give them long spears</td>
+    <td>6</td>
+    <td>6</td>
+    <td>3/0</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Militia</td>
+    <td>+3 per unit</td>
+    <td id="mediumInfantryMilitialongSpearsUpgrade">0</td>
+    <td><button type="button" onclick="addItem('-Medium Infantry militia long spears upgrade', '3', 'upgrade', 'mediumInfantrylongspearsupgrade')">Add</button></td>
+  </tr>
+
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/images/medieval2/m2tw/units/hre/%23peasant_crossbowmen.png"></td>
+    <td>Medium infantry with crossbows<div><em>Crossbowmen are armed with a crossbow, knife and if lucky enough, some armour.</em></div></td>
+    <td>5</td>
+    <td>5</td>
+    <td>3</td>
+    <td>3</td>
+    <td>5+</td>
+    <td>6</td>
+    <td></td>
+    <td>24 per unit</td>
+    <td id="medCrossbows">0</td>
+    <td><button type="button" onclick="addItem('Medium Crossbows', '24', 'missileInfantry', 'medCrossbows')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+      <td></td>
+    <td>Reduction to field medium crossbowmen as small units</td>
+    <td>4</td>
+    <td>4</td>
+    <td>2</td>
+    <td>2</td>
+    <td>5+</td>
+    <td>6</td>
+    <td></td>
+    <td>-6 per unit</td>
+    <td id="smallCrossbows">0</td>
+    <td><button type="button" onclick="addItem('-Medium Infantry Crossbows small downgrade', '-6', 'upgrade', 'smallCrossbows')">Add</button></td> 
+</tr>
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/images/medieval2/m2tw/units/hre/%23peasant_crossbowmen.png"></td>
+    <td>Mercenary Medium infantry with crossbows<div><em>Those who master the crossbow are the engineers of battlefield death.</em></div></td>
+    <td>5</td>
+    <td>5</td>
+    <td>3</td>
+    <td>3</td>
+    <td>5+</td>
+    <td>6</td>
+    <td>Drilled/td>
+    <td>27 per unit</td>
+    <td id="medCrossbowsMerc">0</td>
+    <td><button type="button" onclick="addItem('Mercenary Medium Crossbows', '27', 'missileInfantry', 'medCrossbowsMerc')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+      <td></td>
+    <td>Reduction to field medium crossbowmen as small units</td>
+    <td>4</td>
+    <td>4</td>
+    <td>2</td>
+    <td>2</td>
+    <td>5+</td>
+    <td>6</td>
+    <td></td>
+    <td>-6 per unit</td>
+    <td id="smallCrossbowsMerc">0</td>
+    <td><button type="button" onclick="addItem('-Mercenary Infantry Crossbows small downgrade', '-6', 'upgrade', 'smallCrossbowsMerc')">Add</button></td> 
+</tr>
+	  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/images/medieval2/m2tw/units/england/%23longbowmen.png"></td>
+    <td>Medium infantry with bows<div><em>Best deployed at range, they will suffer heavy losses if kept in melee.</em></div></td>
+    <td>5</td>
+    <td>5</td>
+    <td>3</td>
+    <td>3</td>
+    <td>5+</td>
+    <td>6</td>
+    <td></td>
+    <td>24 per unit</td>
+    <td id="medbows">0</td>
+    <td><button type="button" onclick="addItem('Medium bows', '24', 'missileInfantry', 'medbows')">Add</button></td>
+  </tr>
+ 
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/images/medieval2/m2tw/units/hre/%23peasant_archers.png"></td>
+    <td>Light infantry bowmen<div><em>A peasant archer is armed with a small bow, and a knife. Unreliable, and only moderately effective as archers.</em></div></td>
+    <td>4</td>
+    <td>4</td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>6</td>
+    <td> </td>
+    <td>20 per unit</td>
+    <td id="lightInfantryBowmen">0</td>
+    <td><button type="button" onclick="addItem('Bowmen', '20', 'missileInfantry', 'lightInfantryBowmen')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+      <td></td>
+    <td>Field light infantry bowmen as small units</td>
+    <td>3</td>
+    <td>3</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>4</td>
+    <td> </td>
+    <td>-6 per unit</td>
+    <td id="lightInfantryBowmenSmall">0</td>
+    <td><button type="button" onclick="addItem('Small Bowmen', '-6', 'missileInfantry', 'lightInfantryBowmenSmall')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+      <td></td>
+    <td>Extra to make light infantry bowmen marksmen</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>Marksmen</td>
+    <td>1 per unit</td>
+    <td id="MarksmenBowmen">0</td>
+    <td><button type="button" onclick="addItem('-Small Bowmen Marksmen upgrade', '1', 'upgrade', 'MarksmenBowmen')">Add</button></td>
+  </tr> 
+  
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/images/medieval2/m2tw/units/hre/%23peasants.png"></td>
+    <td>Peasant skirmishers with mixed-arms, and fielded as small units<div><em>Even a poor man can throw a javelin with skill.</em></div></td>
+    <td>3</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>4</td>
+    <td>Levy</td>
+    <td>9 per unit</td>
+    <td id="Peasant">0</td>
+    <td><button type="button" onclick="addItem('Peasant Skirmishers', '9', 'skirmisher', 'Peasant')">Add</button></td>
+  </tr>
+    <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/images/medieval2/m2tw/units/england/%23peasants.png"></td>
+    <td>Skirmishers with javelins, fielded as small units<div><em>Lightly-armoured skirmishers, these men are perfect for screening an army's advance or harassing slower enemies.</em></div></td>
+    <td>3</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>4</td>
+    <td></td>
+    <td>11 per unit</td>
+    <td id="javSkirmishers">0</td>
+    <td><button type="button" onclick="addItem('Javelin Skirmishers', '11', 'skirmisher', 'javSkirmishers')">Add</button></td>
+  </tr>
+    <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/images/medieval2/m2tw/units/england/%23peasants.png"></td>
+    <td>Skirmishers with slings, fielded as small units<div><em>A thrown rock can hurt. A hurled rock can kill.</em></div></td>
+    <td>3</td>
+    <td>2</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>4</td>
+    <td>Levy</td>
+    <td>12 per unit</td>
+    <td id="slingSkirmishers">0</td>
+    <td><button type="button" onclick="addItem('Sling Skirmishers', '12', 'skirmisher', 'slingSkirmishers')">Add</button></td>
+  </tr>
+  
+  
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/images/medieval2/m2tw/units/hre/%23feudal_knights.png"></td>
+    <td>English Knights/Sergeants heavy cavalry with lances<div><em>Protected by heavy armour and armed with a lance, these elite warriors crush and ride down their opponents.</em></div></td>
+    <td>9</td>
+    <td>6</td>
+    <td>3/0</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td> </td>
+    <td>33 per unit</td>
+    <td id="GermanKnightsSergeants">0</td>
+    <td><button type="button" onclick="addItem('Knights/Sergeants Heavy Cavalry', '33', 'cavalry', 'GermanKnightsSergeants')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+      <td><img src="https://www.honga.net/totalwar/images/medieval2/m2tw/units/hre/%23gothic_knights.png"></td>
+    <td>Extra to make Knights/Sergeants cataphract cavalry<div><em>Impressive looking heavy cavalry, well protected by armour for both rider and mount.</em></div></td>
+    <td>9</td>
+    <td>6</td>
+    <td>3/0</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td>Stubborn</td>
+    <td>+4 per unit</td>
+    <td id="cataphractUpgrade">0</td>
+    <td><button type="button" onclick="addItem('-Cataphract upgrade', '4', 'upgrade', 'cataphractUpgrade' )">Add</button></td>
+  </tr>
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/images/medieval2/m2tw/units/hre/%23mounted_crossbowmen.png"></td>
+    <td>Heavy cavalry with crossbows, fielded as a small unit - up to one unit
+        <div><em>Using smaller crossbows than the infantry, these units use their mobility to stay out of trouble while they reload.</em></div></td>
+    <td>6</td>
+    <td>3</td>
+    <td>2</td>
+    <td>2</td>
+    <td>4+</td>
+    <td>4</td>
+    <td> </td>
+    <td>22 per unit</td>
+    <td id="crossbowCav">0</td>
+    <td><button type="button" onclick="addItem('Heavy crossbow cavalry', '22', 'cavalry', 'crossbowCav')">Add</button></td>
+  </tr>
+  
+    <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/images/medieval2/m2tw/units/england/%23demi_lancers.png"></td>
+    <td>Welsh medium cavalry with spears and/or javelins<div><em>Armed with a spear but with less armour these units are mobile and deadly.</em></div></td>
+    <td>8</td>
+    <td>5</td>
+    <td>3</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>6</td>
+    <td> </td>
+    <td>27 per unit</td>
+    <td id="WelshMedium">0</td>
+    <td><button type="button" onclick="addItem('Welsh medium Cavalry', '27', 'cavalry', 'WelshMedium')">Add</button></td>
+  </tr>
+  <tr class="upgrade">
+      <td></td>
+    <td>Extra to make Welsh cavalry heavy cavalry</td>
+    <td>9</td>
+    <td>6</td>
+    <td>3</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>6</td>
+    <td> </td>
+    <td>+3 per unit</td>
+    <td id="WelshHeavy">0</td>
+    <td><button type="button" onclick="addItem('-Welsh Heavy Cavalry upgrade', '3', 'cavalry', 'WelshHeavy')">Add</button></td>
+  </tr>
+  
+  <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/images/medieval2/m2tw/units/england/%23hobilars.png"></td>
+    <td>Welsh light cavalry with spears and/or javelins fielded as a small unit - up to 1 unit<div><em>Light cavalry with spears. Useful for chasing down light infantry, and pursuing fleeing enemy</em></div></td>
+    <td>5</td>
+    <td>3</td>
+    <td>2</td>
+    <td>0</td>
+    <td>6+</td>
+    <td>4</td>
+    <td>Feigned Flight</td>
+    <td>19 per unit</td>
+    <td id="WelshLight">0</td>
+    <td><button type="button" onclick="addItem('Welsh light cavalry', '19', 'cavalry', 'WelshLight')">Add</button></td>
+  </tr>
+  
+  
+  
+</table>
+<br>
+<table>
+  <tr class="default">
+      <td>Commander</td><!-- comment -->
+      <td>1 commander must be provided per division. </td>
+      <td>All commanders including general have leadership 8.</td><!-- comment -->
+      <td><button type="button" onclick="addItem('Commander', '0')">Add</button></td>
+  </tr>
+   <tr class="upgrade">
+      <td>Upgrade division commander to General</td><!-- comment -->
+      <td>Your army must have one General </td>
+      <td>All commanders including general have leadership 8.</td><!-- comment -->
+      <td><button type="button" onclick="addItem('General upgrade', '0')">Add</button></td>
+  </tr>
+
+</table>   
+<br>
+<span id="htmltoimage">
+           <h2 id= "unitBox">Army list</h2>
+           
+           <h4>Division 1</h4>
+           <div id= "Division1"></div>
+           <br>
+           <h4>Division 2</h4>
+           <div id= "Division2"></div>
+           <br>
+           <h4>Division 3</h4>
+           <div id= "Division3"></div>
+           <br>
+           <h4>Points total:</h4>
+           <div id= "pointsTotal">0</div>
+           <br>
+		   </span>
+           <!<!-- unit type totals -->
+           <span>Melee Infantry:</span>
+           <span id="infantry">0</span>
+           <br>
+           <span>Missile Infantry:</span>
+           <span id="missileInfantry">0</span>
+           <br>
+           <span>Skirmishers</span>
+           <span id="skirmisher">0</span>
+           <br>
+           <span>Cavalry</span>
+           <span id="cavalry">0</span>
+           <br>
+		   <button onclick="downloadimage()" class="clickbtn">Click to download your list as an img</button>
+		   <br>
+           <h5> Remember to follow your army list rules! </h5>
+    </body>
+</html>
