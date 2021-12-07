@@ -1,7 +1,16 @@
+
+/* Color */
 html{
     background-color: #F8FCFF
 }
+.upgrade{
+  background-color: #EBEBEB;
+}
+.default{
+    background-color: #E8F3FD
+}
 
+/* formatting for buttons */
 button {
     padding: 7px;
     border: none;
@@ -21,24 +30,91 @@ button.orange {
    background-color: orangered;
 }
 
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+#htmltoimage{
+	float: left;
+	
+	 
 }
-.upgrade{
-  background-color: #EBEBEB;
+#unitList{
+	float: right;
+
 }
-.default{
-    background-color: #E8F3FD
-}
-td, th {
-  border: 2px solid black;
-  text-align: left;
-  padding: 8px;
+.wrapper{
+	display: inline-block;
+	
+	
 }
 
+/*Formatting for tables */
+table {
+  font-family: arial, sans-serif;
+  width: 100%;
+
+    border: 2px solid #b8b8b8;
+    border-collapse: separate;
+    border-left: 0;
+    border-radius: 4px;
+    border-spacing: 0px;
+	
+	
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+    border-collapse: separate;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+th, td {
+    padding: 5px 4px 6px 4px; 
+    text-align: left;
+    vertical-align: top;
+    border-left: 1px solid #b8b8b8;    
+}
+td {
+    border-top: 1px solid #b8b8b8;    
+}
+thead:first-child tr:first-child th:first-child, tbody:first-child tr:first-child td:first-child {
+    border-radius: 4px 0 0 0;
+}
+thead:last-child tr:last-child th:first-child, tbody:last-child tr:last-child td:first-child {
+    border-radius: 0 0 0 4px;
+}
 
 em {
     font-size: 80%
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  /*display: inline-block;*/
+  
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 2px 0;
+  border-radius: 2px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+.tooltiptext{
+font-size: 80%
+}
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
