@@ -33,7 +33,7 @@
 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F10%2F62%2Fff%2F1062ff9f53434251a33a586b8d2f30e3.jpg&f=1&nofb=1" 
      alt="republicanRomans" width="550" height="450">
 <p>These are the rules for making a Republican Roman army<p>
-<table class="default">
+<table class="default" id = "rcorners1">
 
     <tr>
         <td>Infantry 75%</td><!-- comment -->
@@ -75,6 +75,34 @@
            
 <p>Select a unit to add to your army</p>
 <p>Entries in the table will be either <span class = "default"> units </span> or <span class = "upgrade"> unit upgrades</span></p>
+
+<span id="htmltoimage"class="wrapper"> 
+           <h2 id= "unitBox">Army list</h2>
+           <h4>Division 1</h4>
+           <div id= "Division1"></div>
+           <br>
+           <h4>Division 2</h4>
+           <div id= "Division2"></div>
+           <br>
+           <h4>Division 3</h4>
+           <div id= "Division3"></div>
+           <br>
+           <h4>Points total:</h4>
+           <div id= "pointsTotal">0</div>
+           <br>
+		   
+           <!<!-- unit type totals -->
+           <span>Melee Infantry:</span>
+           <span id="infantry">0</span>
+           <br>
+           <span>Skirmishers</span>
+           <span id="skirmisher">0</span>
+           <br>
+           <span>Cavalry</span>
+           <span id="cavalry">0</span>
+           <br>
+		   </span>
+<span class="wrapper" id="unitList">
 <table><!--For the 'add' buttons, you need the following info for the script to work properly:
         name of the unit to add, 
         how many points they cost, 
@@ -103,7 +131,7 @@
     <td>0</td>
     <td>4+</td>
     <td>4</td>
-    <td>Drilled</td>
+    <td class="tooltip">Drilled<span class="tooltiptext"> Drilled - Free move on failed order. Units may move through other drilled units without risk of disorder</td></span>
     <td>23 per unit</td>
     <td id="hastati">0</td>
     <td><button type="button" onclick="addItem('Hastati', '23', 'infantry', 'hastati')">Add</button></td>
@@ -117,7 +145,7 @@
     <td>0</td>
     <td>4+</td>
     <td>4</td>
-    <td>Drilled, Tough fighters</td>
+    <td class="tooltip">Drilled, Tough Fighters<span class="tooltiptext">Tough Fighters - Re-roll one missed hand-to-hand combat attack</td></span>
     <td>+1 per unit</td>
     <td id="hastatitoughfighters">0</td>
     <td><button type="button" onclick="addItem(' -Tough Hastati Upgrade', '1', 'upgrade', 'hastatitoughfighters')">Add</button></td>
@@ -132,7 +160,7 @@
     <td>0</td>
     <td>4+</td>
     <td>4</td>
-    <td>Drilled</td>
+    <td class="tooltip">Drilled<span class="tooltiptext"> Drilled - Free move on failed order. Units may move through other drilled units without risk of disorder</td></span>
     <td>23 per unit</td>
     <td id="principes">0</td>
     <td><button type="button" onclick="addItem('Principes', '23', 'infantry', 'principes')">Add</button></td>
@@ -146,7 +174,7 @@
     <td>0</td>
     <td>4+</td>
     <td>4</td>
-    <td>Drilled, Stubborn</td>
+    <td class="tooltip">Drilled, Stubborn<span class="tooltiptext"> Stubborn - Re-roll 1 failed morale save</td></span>
     <td>+2 per unit</td>
     <td id="principesStubborn">0</td>
     <td><button type="button" onclick="addItem(' -Stubborn Principes Upgrade', '2', 'upgrade', 'principesStubborn')">Add</button></td>
@@ -160,10 +188,10 @@
     <td>0</td>
     <td>4+</td>
     <td>4</td>
-    <td>Levy</td>
+    <td class="tooltip">Levy<span class="tooltiptext">Levy - Must roll 4+ on a D6 to recover disorder at end of turn</td></span>
     <td>-8 per pair</td>
     <td id="principesLevyReduction">0</td>
-    <td><button type="button" onclick="addItem(' -Levy Principes/Hastati Downgrade', '-8', 'upgrade', 'principesLevyReduction')">Add</button></td>
+    <td><button type="button" onclick="addItem(' -Levy Principes/Hastati', '-8', 'upgrade', 'principesLevyReduction')">Add</button></td>
   </tr>
   <tr class="default">
       <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Rom_Triarii.png"></td>
@@ -175,7 +203,9 @@
     <td>0</td>
     <td>4+</td>
     <td>4</td>
-    <td>Drilled, Elite, Stubborn</td>
+    <td class="tooltip">Drilled, Elite, Stubborn<span class="tooltiptext"> Drilled - Free move on failed order. Units may move through other drilled units without risk of disorder. 
+	Elite - Recover from disorder on D6 roll of 4+ at start of turn. 
+	Stubborn - Re-roll 1 failed morale save</td></span>
     <td>28 per unit</td>
     <td id="triarii">0</td>
     <td><button type="button" onclick="addItem('Triarii', '28', 'infantry', 'triarii')">Add</button></td>
@@ -189,14 +219,43 @@
     <td>0</td>
     <td>4+</td>
     <td>4</td>
-    <td>Drilled, Elite, Stubborn, Valiant</td>
+    <td class="tooltip">Drilled, Elite, Stubborn, Valiant<span class="tooltiptext"> Valiant - Re-roll break test once per battle</td></span>
     <td>+2 per unit</td>
     <td id="valiantTriarii">0</td>
     <td><button type="button" onclick="addItem(' -Valiant Triarii Upgrade', '2', 'upgrade', 'valiantTriarii')">Add</button></td>
   </tr>
+    <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Ita_Socii_Hastati.png"></td>
+    <td>Allied Italian Socii Hastati armed with pila and fielded as small units<div><em>These troops throw spears at the enemy, and then close to settle matters with the sword.</em></div></td>
+    <td>5</td>
+    <td>5</td>
+    <td>2</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>4</td>
+    <td class="tooltip">Drilled<span class="tooltiptext"> Drilled - Free move on failed order. Units may move through other drilled units without risk of disorder</td></span>
+    <td>23 per unit</td>
+    <td id="sociiHastati">0</td>
+    <td><button type="button" onclick="addItem('Socii Hastati', '23', 'infantry', 'sociiHastati')">Add</button></td>
+  </tr>
+      <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Ita_Socii_Extraordinarii.png"></td>
+    <td>Allied Italian Socii Hastati Extrodinarii armed with pila and fielded as small units<div><em>For close-quarters fighting, these men admit no equals; a boast, perhaps, but one born of pride.</em></div></td>
+    <td>5</td>
+    <td>5</td>
+    <td>2</td>
+    <td>0</td>
+    <td>4+</td>
+    <td>4</td>
+    <td class="tooltip">Drilled, Tough Fighters<span class="tooltiptext"> Drilled - Free move on failed order. Units may move through other drilled units without risk of disorder.
+	Tough Fighters - Re-roll one missed hand-to-hand combat attack</td></span>
+    <td>24 per unit</td>
+    <td id="sociiHastatiExtrodinarii">0</td>
+    <td><button type="button" onclick="addItem('Socii Hastati Extrodinarii', '24', 'infantry', 'sociiHastatiExtrodinarii')">Add</button></td>
+  </tr>
   <tr class="default">
       <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Infantry.png"></td>
-    <td>Italian allied medium infantry armed with spears and/or javelins <div><em>Able soldiers, well schooled in war, and eager to serve Rome.</em></div></td>
+    <td>Rorarii or Italian allied medium infantry armed with spears and/or javelins <div><em>Able soldiers, well schooled in war, and eager to serve Rome.</em></div></td>
     <td>6</td>
     <td>6</td>
     <td>3</td>
@@ -217,7 +276,7 @@
     <td>0</td>
     <td>5+</td>
     <td>6</td>
-    <td>Levy</td>
+    <td class="tooltip">Levy<span class="tooltiptext">Levy - Must roll 4+ on a D6 to recover disorder at end of turn</td></span>
     <td>-3 per unit</td>
     <td id="levySpears">0</td>
     <td><button type="button" onclick="addItem(' -Italian Spears Levy downgrade', '-3', 'upgrade', 'levySpears')">Add</button></td>
@@ -231,7 +290,7 @@
     <td>0</td>
     <td>5+</td>
     <td>6</td>
-    <td>Wild Fighters</td>
+    <td class="tooltip">Wild Fighters<span class="tooltiptext">Wild Fighters - reroll up to 3 failed hand-to-hand attacks in the first round of combat</td></span>
     <td>28 per unit</td>
     <td id="gallicWarband">0</td>
     <td><button type="button" onclick="addItem('Medium infantry Warband', '28', 'infantry', 'gallicWarband',)">Add</button></td>
@@ -244,7 +303,7 @@
     <td>0</td>
     <td>5+</td>
     <td>8</td>
-    <td>Wild Fighters</td>
+    <td class="tooltip">Wild Fighters<span class="tooltiptext">Wild Fighters - reroll up to 3 failed hand-to-hand attacks in the first round of combat</td></span>
     <td>+7 per unit</td>
     <td id="largeWarband">0</td>
     <td><button type="button" onclick="addItem(' -Warband Large Upgrade', '7', 'upgrade', 'largeWarband')">Add</button></td>
@@ -274,14 +333,14 @@
     <td>0</td>
     <td>6+</td>
     <td>4</td>
-    <td>Tough Fighters</td>
+    <td class="tooltip">Tough Fighters<span class="tooltiptext">Tough Fighters - Re-roll one missed hand-to-hand combat attack</td></span>
     <td>+1 per unit</td>
     <td id="toughFighterVelites">0</td>
     <td><button type="button" onclick="addItem(' -Velites tough fighters', '1', 'upgrade', 'toughFighterVelites')">Add</button></td>
   </tr>
   <tr class="default">
       <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Rom_Leves.png"></td>
-      <td>Skirmishers armed with javelins and fielded as small units <div><em>Even a poor man can throw a javelin with skill.</em></div></td>
+      <td>Accensi or allied Italian Skirmishers armed with javelins and fielded as small units <div><em>Even a poor man can throw a javelin with skill.</em></div></td>
     <td>3</td>
     <td>2</td>
     <td>2</td>
@@ -316,7 +375,7 @@
     <td>0</td>
     <td>0</td>
     <td>4</td>
-    <td>Marksmen</td>
+    <td class="tooltip">Marksman<span class="tooltiptext">Marksman - Re-roll one missed ranged combat attack</td></span>
     <td>+1 per unit</td>
     <td id="slingerMarksmen">0</td>
     <td><button type="button" onclick="addItem(' -Baleric Slingers', '1', 'upgrade', 'slingerMarksmen')">Add</button></td>
@@ -344,14 +403,14 @@
     <td>0</td>
     <td>0</td>
     <td>4</td>
-    <td>Marksmen</td>
+    <td class="tooltip">Marksman<span class="tooltiptext">Marksman - Re-roll one missed ranged combat attack</td></span>
     <td>+1 per unit</td>
     <td id="bowmenMarksmen">0</td>
     <td><button type="button" onclick="addItem(' -Bowmen marksmen', '1', 'upgrade', 'bowmenMarksmen')">Add</button></td>
   </tr>
   <tr class="default">
       <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Rom_Legionary_Cav.png"></td>
-      <td>Roman Equites or allied Italian medium cavalry fielded as small units
+      <td>Equites or allied Italian Socii Equites medium cavalry fielded as small units
           <div><em>The cavalry elite of Roman society can be among its most effective defenders.</em></div></td>
     <td>6</td>
     <td>3</td>
@@ -362,7 +421,22 @@
     <td> </td>
     <td>19 per unit</td>
     <td id="mediumCav">0</td>
-    <td><button type="button" onclick="addItem('Medium cavalry', '19', 'cavalry', 'mediumCav')">Add</button></td>
+    <td><button type="button" onclick="addItem('Equites', '19', 'cavalry', 'mediumCav')">Add</button></td>
+  </tr>
+    <tr class="default">
+      <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Ita_Socii_Equites_Extraordinarii.png"></td>
+   <td>Allied Italian Socii Equites Extrodinarii medium cavalry fielded as small units
+          <div><em>Excellent horsemen and a valuable striking force to a bold commander.</em></div></td>
+    <td>6</td>
+    <td>3</td>
+    <td>2</td>
+    <td>0</td>
+    <td>5+</td>
+    <td>4</td>
+    <td class="tooltip">Tough Fighters<span class="tooltiptext">Tough Fighters - Re-roll one missed hand-to-hand combat attack</td></span>
+    <td>20 per unit</td>
+    <td id="sociiEquitesExtrodinarii">0</td>
+    <td><button type="button" onclick="addItem('Socii Equites Extrodinarii', '20', 'cavalry', 'sociiEquitesExtrodinarii')">Add</button></td>
   </tr>
   <tr class="default">
       <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_rome/Aux_Ibe_Cav.png"></td>
@@ -389,7 +463,7 @@
     <td>0</td>
     <td>6+</td>
     <td>4</td>
-    <td>Feigned Flight</td>
+    <td class="tooltip">Feigned Flight<span class="tooltiptext">Feigned Flight - This unit is allowed to move out of a combat engagement</td></span>
     <td>+2 per unit</td>
     <td id="NumidianCavalryUpgrade">0</td>
     <td><button type="button" onclick="addItem('Numidian cavalry upgrade', '2', 'upgrade', 'NumidianCavalryUpgrade')">Add</button></td>
@@ -404,7 +478,8 @@
     <td>0</td>
     <td>6+</td>
     <td>4</td>
-    <td>Stubborn, Elite</td>
+    <td class="tooltip">Elite, Stubborn<span class="tooltiptext">Elite - Recover from disorder on D6 roll of 4+ at start of turn. 
+	Stubborn - Re-roll 1 failed morale save</td></span>
     <td>+3 per unit</td>
     <td id="tarentineLightCav">0</td>
     <td><button type="button" onclick="addItem('Tarentine cavalry upgrade', '3', 'upgrade', 'tarentineLightCav')">Add</button></td>
@@ -433,17 +508,17 @@
     <td>0</td>
     <td>5+</td>
     <td>6</td>
-    <td>Tough Fighters</td>
+    <td class="tooltip">Tough Fighters<span class="tooltiptext">Tough Fighters - Re-roll one missed hand-to-hand combat attack</td></span>
     <td>+1 per unit</td>
     <td id="toughFightersCav">0</td>
-    <td><button type="button" onclick="addItem('Tough fighters medium cavalry upgrade', '1', 'upgrade', 'alliedMedCav')">Add</button></td>
+    <td><button type="button" onclick="addItem('Tough fighters med cav', '1', 'upgrade', 'toughFightersCav')">Add</button></td>
   </tr>
 </table><!-- comment -->
 <br>
 <table>
   <tr class="default">
       <td>Commander
-      <div><em>Command must be exercised in person to be effective.</em></div></td><!-- comment -->
+      <div><em>Command must be exercised in person to be effective.</em></div></td><!-- comment -->S
       <td>1 commander must be provided per division. </td>
       <td>All commanders including general have leadership 8.</td><!-- comment -->
       <td><button type="button" onclick="addItem('Commander', '0')">Add</button></td>
@@ -461,33 +536,11 @@
       <td>+25 points.</td><!-- comment -->
       <td><button type="button" onclick="addItem('Leadership upgrade', '25')">Add</button></td>
   </tr>
-</table>   
-<br>
-<span id="htmltoimage">
-           <h2 id= "unitBox">Army list</h2>
-           <h4>Division 1</h4>
-           <div id= "Division1"></div>
-           <br>
-           <h4>Division 2</h4>
-           <div id= "Division2"></div>
-           <br>
-           <h4>Division 3</h4>
-           <div id= "Division3"></div>
-           <br>
-           <h4>Points total:</h4>
-           <div id= "pointsTotal">0</div>
-           <br>
-		   </span>
-           <!<!-- unit type totals -->
-           <span>Melee Infantry:</span>
-           <span id="infantry">0</span>
-           <br>
-           <span>Skirmishers</span>
-           <span id="skirmisher">0</span>
-           <br>
-           <span>Cavalry</span>
-           <span id="cavalry">0</span>
-           <br>
+</table>
+</span>
+ 
+
+
 		   <button onclick="downloadimage()" class="clickbtn">Click to download your list as an img</button>
 		   <br>
            <h5> Remember to follow your army list rules! </h5>
