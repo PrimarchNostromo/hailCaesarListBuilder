@@ -32,15 +32,17 @@ button.orange {
 
 #htmltoimage{
 	float: left;
-	
+	width: 19%;
 	 
 }
 #unitList{
 	float: right;
-
+	width: 80%;
 }
 .wrapper{
 	display: inline-block;
+	vertical-align: middle;
+	
 	
 	
 }
@@ -48,7 +50,7 @@ button.orange {
 /*Formatting for tables */
 table {
   font-family: arial, sans-serif;
-  width: 100%;
+  
 
     border: 2px solid #b8b8b8;
     border-collapse: separate;
