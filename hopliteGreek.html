@@ -73,6 +73,38 @@
            
 <p>Select a unit to add to your army</p>
 <p>Entries in the table will be either <span class = "default"> units </span> or <span class = "upgrade"> unit upgrades</span></p>
+
+<span id="htmltoimage" class = "wrapper">
+           <h2 id= "unitBox">Army list</h2>
+           <h4>Division 1</h4>
+           <div id= "Division1"></div>
+           <br>
+           <h4>Division 2</h4>
+           <div id= "Division2"></div>
+           <br>
+           <h4>Division 3</h4>
+           <div id= "Division3"></div>
+           <br>
+           <h4>Points total:</h4>
+           <div id= "pointsTotal">0</div>
+           <br>
+		   
+           <!<!-- unit type totals -->
+           <span>Melee Infantry:</span>
+           <span id="infantry">0</span>
+           <br>
+           <span>Skirmishers</span>
+           <span id="skirmisher">0</span>
+           <br>
+           <span>Cavalry</span>
+           <span id="cavalry">0</span>
+           <br>
+		   <button onclick="downloadimage()" class="clickbtn">Click to download your list as an img</button>
+		   <br>
+           <h5> Remember to follow your army list rules! </h5>
+</span>
+
+<span class = "wrapper" id="unitList">
 <table><!--For the 'add' buttons, you need the following info for the script to work properly:
         name of the unit to add, 
         how many points they cost, 
@@ -202,7 +234,7 @@
   </tr>
   <tr class="upgrade">
       <td><img src="https://www.honga.net/totalwar/rome2/gen_images/unit_icon/rome2/rom_sparta/Gre_Helot_Slingers.png"></td>
-      <td>Give skirmishers slings instead of javelins (up to half the skirmisher units)<div><em>Witty slingers often scratch "OUCH!" onto their shot</em></div></td>
+      <td>Give skirmishers slings instead of javelins  (up to half the skirmisher units)<div><em>Witty slingers often scratch "OUCH!" onto their shot</em></div></td>
     <td>2</td>
     <td>2</td>
     <td>2</td>
@@ -328,34 +360,8 @@
       <td><button type="button" onclick="addItem('Leadership upgrade', '25')">Add</button></td>
   </tr>
 </table>   
+</span>
 <br>
-<span id="htmltoimage">
-           <h2 id= "unitBox">Army list</h2>
-           <h4>Division 1</h4>
-           <div id= "Division1"></div>
-           <br>
-           <h4>Division 2</h4>
-           <div id= "Division2"></div>
-           <br>
-           <h4>Division 3</h4>
-           <div id= "Division3"></div>
-           <br>
-           <h4>Points total:</h4>
-           <div id= "pointsTotal">0</div>
-           <br>
-		   </span>
-           <!<!-- unit type totals -->
-           <span>Melee Infantry:</span>
-           <span id="infantry">0</span>
-           <br>
-           <span>Skirmishers</span>
-           <span id="skirmisher">0</span>
-           <br>
-           <span>Cavalry</span>
-           <span id="cavalry">0</span>
-           <br>
-		   <button onclick="downloadimage()" class="clickbtn">Click to download your list as an img</button>
-		   <br>
-           <h5> Remember to follow your army list rules! </h5>
+
     </body>
 </html>
